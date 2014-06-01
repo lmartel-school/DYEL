@@ -9,37 +9,27 @@
 #import "RoutineTableViewController.h"
 #import "CoreData.h"
 #import "Routine+Fetch.h"
-#import "Exercise.h"
+#import "Exercise+Create.h"
+#import "ExerciseDetailViewController.h"
 
 @interface RoutineTableViewController ()
-
-@property (nonatomic, strong) NSMutableDictionary *resultsByDay;
 
 @end
 
 @implementation RoutineTableViewController
 
-- (NSDictionary *)resultsByDay
-{
-    if(!_resultsByDay){
-        _resultsByDay = [[NSMutableDictionary alloc] init];
-    }
-    return _resultsByDay;
-}
-
 - (void)awakeFromNib
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.navigationItem.title = @"Exercises";
+    self.navigationItem.title = @"Routine";
     
     [CoreData createContextWithCompletionHandler:^(BOOL success) {
         if(success){
             self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[Routine fetchRequest]
                                                                                 managedObjectContext:[CoreData context]
-                                                                                  sectionNameKeyPath:nil
+                                                                                  sectionNameKeyPath:@"day.index"
                                                                                            cacheName:nil];
-//            [[self.fetchedResultsController fetchedObjects] makeObjectsPerformSelector:@selector(populate:) withObject:self.resultsByDay];
         } else {
             self.fetchedResultsController = nil;
             NSLog(@"[Error] RoutineTableViewController awakeFromNib");
@@ -48,60 +38,77 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView setEditing:YES animated:animated];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[CoreData dayNames] count];
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString *dayName = [CoreData dayNames][section];
-    return [[[self.fetchedResultsController fetchedObjects] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"day.name = %@", dayName]] count];
+    return [[self.fetchedResultsController sections][section] numberOfObjects];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [CoreData dayNames][section];
+    int index = [[[self.fetchedResultsController sections][section] name] intValue];
+    return [CoreData dayNames][index];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Routine Cell" forIndexPath:indexPath];
-    
-    NSString *dayName = [CoreData dayNames][indexPath.section];
-    Routine *routine = [[self.fetchedResultsController fetchedObjects] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"day.name = %@", dayName]][indexPath.row];
-    
-    cell.textLabel.text = routine.exercise.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@x%@", routine.sets, routine.reps];
-    
+    UITableViewCell *cell;
+
+    if(YES){ // TODO empty sections
+        Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Routine Cell" forIndexPath:indexPath];
+        cell.textLabel.text = routine.exercise.name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@x%@", routine.sets, routine.reps];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Empty Routine Cell" forIndexPath:indexPath];
+        cell.textLabel.text = @"Rest";
+    }
     return cell;
 }
 
+#pragma mark - Table view delegate
 
-/*
-// Override to support conditional editing of the table view.
+// Disable index (thin bar on right-hand side)
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return nil;
+}
+
+
+// Enable editing
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return ![[[tableView cellForRowAtIndexPath:indexPath] reuseIdentifier] isEqualToString:@"Empty Routine Cell"];
 }
-*/
 
-/*
-// Override to support editing the table view.
+// Enable deleting (but not inserting) from view
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        [[CoreData context] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -119,15 +126,21 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqualToString:@"Selection"]){
+        // TODO
+    } else if([[segue identifier] isEqualToString:@"Accessory"]){
+        ExerciseDetailViewController *dest = [segue destinationViewController];
+//        Routine *routine = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        dest.exercise = [Exercise exerciseWithName:sender.textLabel.text inManagedObjectContext:[CoreData context]];
+    } else {
+        NSLog(@"[Error] RoutineTableViewController prepareForSegue");
+    }
 }
-*/
 
 @end

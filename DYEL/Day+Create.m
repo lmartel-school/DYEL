@@ -34,7 +34,6 @@
                             countForFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Day"]
                             error:nil] - 1
                          ];
-            NSLog(@"%@", day.index);
         } else {
             day = [matches lastObject];
         }

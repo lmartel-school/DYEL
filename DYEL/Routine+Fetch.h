@@ -10,7 +10,6 @@
 
 @interface Routine (Fetch)
 
-- (void)populate:(NSMutableDictionary *)dict;
 + (NSFetchRequest *)fetchRequestForDay:(Day *)day;
 + (NSFetchRequest *)fetchRequest;
 

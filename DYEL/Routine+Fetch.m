@@ -12,16 +12,6 @@
 
 @implementation Routine (Fetch)
 
-- (void)populate:(NSMutableDictionary *)dict
-{
-    NSMutableArray *routines = [dict objectForKey:self.day.index];
-    if(!routines){
-        routines = [[NSMutableArray alloc] init];
-    }
-    [routines addObject:self];
-    [dict setObject:routines forKey:self.day.index];
-}
-
 + (NSFetchRequest *)fetchRequest{
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Routine"
                                               inManagedObjectContext:[CoreData context]];
@@ -45,6 +35,8 @@
 + (NSArray *)makeSortDescriptors
 {
     return @[
+             [NSSortDescriptor sortDescriptorWithKey:@"day.index"
+                                           ascending:YES],
              [NSSortDescriptor sortDescriptorWithKey:@"position"
                                            ascending:YES]
              ];

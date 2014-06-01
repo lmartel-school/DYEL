@@ -24,7 +24,6 @@
 		B3BACF1F193AD3FE00AA8E77 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF1E193AD3FE00AA8E77 /* CoreDataTableViewController.m */; };
 		B3BACF23193AD4DE00AA8E77 /* CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF22193AD4DE00AA8E77 /* CoreData.m */; };
 		B3BACF27193AD7B800AA8E77 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF25193AD7B800AA8E77 /* Model.xcdatamodeld */; };
-		B3BACF2B193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF2A193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m */; };
 		B3BACF32193ADA8500AA8E77 /* Exercise+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF31193ADA8500AA8E77 /* Exercise+Create.m */; };
 		B3BACF35193AE9AD00AA8E77 /* ExerciseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF34193AE9AD00AA8E77 /* ExerciseDetailViewController.m */; };
 		B3BACF46193AF98000AA8E77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3BACF45193AF98000AA8E77 /* Images.xcassets */; };
@@ -73,8 +72,6 @@
 		B3BACF21193AD4DE00AA8E77 /* CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreData.h; sourceTree = "<group>"; };
 		B3BACF22193AD4DE00AA8E77 /* CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreData.m; sourceTree = "<group>"; };
 		B3BACF26193AD7B800AA8E77 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		B3BACF2A193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGIFImageSerialization.m; sourceTree = "<group>"; };
-		B3BACF2C193AD94E00AA8E77 /* AnimatedGIFImageSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedGIFImageSerialization.h; sourceTree = "<group>"; };
 		B3BACF30193ADA8500AA8E77 /* Exercise+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Exercise+Create.h"; sourceTree = "<group>"; };
 		B3BACF31193ADA8500AA8E77 /* Exercise+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Exercise+Create.m"; sourceTree = "<group>"; };
 		B3BACF33193AE9AD00AA8E77 /* ExerciseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseDetailViewController.h; sourceTree = "<group>"; };
@@ -246,19 +243,9 @@
 		B3BACF28193AD92200AA8E77 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				B3BACF29193AD93A00AA8E77 /* AnimatedGIFImageSerialization */,
 				B3BACF20193AD40200AA8E77 /* CoreDataTableViewController */,
 			);
 			name = Lib;
-			sourceTree = "<group>";
-		};
-		B3BACF29193AD93A00AA8E77 /* AnimatedGIFImageSerialization */ = {
-			isa = PBXGroup;
-			children = (
-				B3BACF2C193AD94E00AA8E77 /* AnimatedGIFImageSerialization.h */,
-				B3BACF2A193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m */,
-			);
-			name = AnimatedGIFImageSerialization;
 			sourceTree = "<group>";
 		};
 		B3BACF36193AE9C800AA8E77 /* Views */ = {
@@ -375,7 +362,6 @@
 				B3BACF23193AD4DE00AA8E77 /* CoreData.m in Sources */,
 				B3BACF27193AD7B800AA8E77 /* Model.xcdatamodeld in Sources */,
 				B3BACF52193B361300AA8E77 /* Exercise.m in Sources */,
-				B3BACF2B193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m in Sources */,
 				B3BACF49193B0D8C00AA8E77 /* ExerciseAddViewController.m in Sources */,
 				B3BACF5E193B38C000AA8E77 /* Routine.m in Sources */,
 				B3BACEFB193AD18100AA8E77 /* DYELViewController.m in Sources */,
