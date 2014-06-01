@@ -13,5 +13,6 @@
 
 @dynamic name;
 @dynamic index;
+@dynamic routines;
 
 @end

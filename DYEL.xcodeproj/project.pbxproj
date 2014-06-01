@@ -25,13 +25,16 @@
 		B3BACF23193AD4DE00AA8E77 /* CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF22193AD4DE00AA8E77 /* CoreData.m */; };
 		B3BACF27193AD7B800AA8E77 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF25193AD7B800AA8E77 /* Model.xcdatamodeld */; };
 		B3BACF2B193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF2A193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m */; };
-		B3BACF2F193ADA6200AA8E77 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF2E193ADA6200AA8E77 /* Exercise.m */; };
 		B3BACF32193ADA8500AA8E77 /* Exercise+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF31193ADA8500AA8E77 /* Exercise+Create.m */; };
 		B3BACF35193AE9AD00AA8E77 /* ExerciseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF34193AE9AD00AA8E77 /* ExerciseDetailViewController.m */; };
 		B3BACF46193AF98000AA8E77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3BACF45193AF98000AA8E77 /* Images.xcassets */; };
 		B3BACF49193B0D8C00AA8E77 /* ExerciseAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF48193B0D8C00AA8E77 /* ExerciseAddViewController.m */; };
-		B3BACF4C193B0EED00AA8E77 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF4B193B0EED00AA8E77 /* Day.m */; };
 		B3BACF4F193B0F1500AA8E77 /* Day+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF4E193B0F1500AA8E77 /* Day+Create.m */; };
+		B3BACF52193B361300AA8E77 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF51193B361300AA8E77 /* Exercise.m */; };
+		B3BACF55193B361400AA8E77 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF54193B361400AA8E77 /* Day.m */; };
+		B3BACF5B193B369000AA8E77 /* RoutineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF5A193B369000AA8E77 /* RoutineTableViewController.m */; };
+		B3BACF5E193B38C000AA8E77 /* Routine.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF5D193B38C000AA8E77 /* Routine.m */; };
+		B3BACF61193B3FE400AA8E77 /* Routine+Fetch.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +75,6 @@
 		B3BACF26193AD7B800AA8E77 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B3BACF2A193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGIFImageSerialization.m; sourceTree = "<group>"; };
 		B3BACF2C193AD94E00AA8E77 /* AnimatedGIFImageSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedGIFImageSerialization.h; sourceTree = "<group>"; };
-		B3BACF2D193ADA6200AA8E77 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
-		B3BACF2E193ADA6200AA8E77 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
 		B3BACF30193ADA8500AA8E77 /* Exercise+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Exercise+Create.h"; sourceTree = "<group>"; };
 		B3BACF31193ADA8500AA8E77 /* Exercise+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Exercise+Create.m"; sourceTree = "<group>"; };
 		B3BACF33193AE9AD00AA8E77 /* ExerciseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseDetailViewController.h; sourceTree = "<group>"; };
@@ -81,10 +82,18 @@
 		B3BACF45193AF98000AA8E77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B3BACF47193B0D8C00AA8E77 /* ExerciseAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseAddViewController.h; sourceTree = "<group>"; };
 		B3BACF48193B0D8C00AA8E77 /* ExerciseAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseAddViewController.m; sourceTree = "<group>"; };
-		B3BACF4A193B0EED00AA8E77 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
-		B3BACF4B193B0EED00AA8E77 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		B3BACF4D193B0F1500AA8E77 /* Day+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Day+Create.h"; sourceTree = "<group>"; };
 		B3BACF4E193B0F1500AA8E77 /* Day+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Day+Create.m"; sourceTree = "<group>"; };
+		B3BACF50193B361300AA8E77 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		B3BACF51193B361300AA8E77 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		B3BACF53193B361400AA8E77 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
+		B3BACF54193B361400AA8E77 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
+		B3BACF59193B369000AA8E77 /* RoutineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutineTableViewController.h; sourceTree = "<group>"; };
+		B3BACF5A193B369000AA8E77 /* RoutineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutineTableViewController.m; sourceTree = "<group>"; };
+		B3BACF5C193B38C000AA8E77 /* Routine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routine.h; sourceTree = "<group>"; };
+		B3BACF5D193B38C000AA8E77 /* Routine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routine.m; sourceTree = "<group>"; };
+		B3BACF5F193B3FE400AA8E77 /* Routine+Fetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Routine+Fetch.h"; sourceTree = "<group>"; };
+		B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Routine+Fetch.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +208,8 @@
 				B3BACF34193AE9AD00AA8E77 /* ExerciseDetailViewController.m */,
 				B3BACF47193B0D8C00AA8E77 /* ExerciseAddViewController.h */,
 				B3BACF48193B0D8C00AA8E77 /* ExerciseAddViewController.m */,
+				B3BACF59193B369000AA8E77 /* RoutineTableViewController.h */,
+				B3BACF5A193B369000AA8E77 /* RoutineTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -215,15 +226,19 @@
 		B3BACF24193AD7A400AA8E77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B3BACF5C193B38C000AA8E77 /* Routine.h */,
+				B3BACF5D193B38C000AA8E77 /* Routine.m */,
 				B3BACF25193AD7B800AA8E77 /* Model.xcdatamodeld */,
-				B3BACF4A193B0EED00AA8E77 /* Day.h */,
-				B3BACF4B193B0EED00AA8E77 /* Day.m */,
+				B3BACF53193B361400AA8E77 /* Day.h */,
+				B3BACF54193B361400AA8E77 /* Day.m */,
+				B3BACF50193B361300AA8E77 /* Exercise.h */,
+				B3BACF51193B361300AA8E77 /* Exercise.m */,
 				B3BACF4D193B0F1500AA8E77 /* Day+Create.h */,
 				B3BACF4E193B0F1500AA8E77 /* Day+Create.m */,
-				B3BACF2D193ADA6200AA8E77 /* Exercise.h */,
-				B3BACF2E193ADA6200AA8E77 /* Exercise.m */,
 				B3BACF30193ADA8500AA8E77 /* Exercise+Create.h */,
 				B3BACF31193ADA8500AA8E77 /* Exercise+Create.m */,
+				B3BACF5F193B3FE400AA8E77 /* Routine+Fetch.h */,
+				B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -351,19 +366,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3BACF55193B361400AA8E77 /* Day.m in Sources */,
 				B3BACF35193AE9AD00AA8E77 /* ExerciseDetailViewController.m in Sources */,
 				B3BACEF5193AD18100AA8E77 /* DYELAppDelegate.m in Sources */,
 				B3BACEF1193AD18100AA8E77 /* main.m in Sources */,
+				B3BACF61193B3FE400AA8E77 /* Routine+Fetch.m in Sources */,
+				B3BACF5B193B369000AA8E77 /* RoutineTableViewController.m in Sources */,
 				B3BACF23193AD4DE00AA8E77 /* CoreData.m in Sources */,
 				B3BACF27193AD7B800AA8E77 /* Model.xcdatamodeld in Sources */,
+				B3BACF52193B361300AA8E77 /* Exercise.m in Sources */,
 				B3BACF2B193AD94B00AA8E77 /* AnimatedGIFImageSerialization.m in Sources */,
 				B3BACF49193B0D8C00AA8E77 /* ExerciseAddViewController.m in Sources */,
+				B3BACF5E193B38C000AA8E77 /* Routine.m in Sources */,
 				B3BACEFB193AD18100AA8E77 /* DYELViewController.m in Sources */,
 				B3BACF1C193AD3C800AA8E77 /* ExerciseTableViewController.m in Sources */,
 				B3BACF32193ADA8500AA8E77 /* Exercise+Create.m in Sources */,
 				B3BACF4F193B0F1500AA8E77 /* Day+Create.m in Sources */,
-				B3BACF2F193ADA6200AA8E77 /* Exercise.m in Sources */,
-				B3BACF4C193B0EED00AA8E77 /* Day.m in Sources */,
 				B3BACF1F193AD3FE00AA8E77 /* CoreDataTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

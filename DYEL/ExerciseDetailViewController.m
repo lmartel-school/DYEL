@@ -7,7 +7,10 @@
 //
 
 #import "ExerciseDetailViewController.h"
-#import "AnimatedGIFImageSerialization.h"
+#import "ExerciseAddViewController.h"
+#import "Routine+Fetch.h"
+#import "CoreData.h"
+#import "Day+Create.h"
 
 @interface ExerciseDetailViewController ()
 
@@ -32,15 +35,27 @@
 
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ExerciseAddViewController *dest = [segue destinationViewController];
+    __weak ExerciseDetailViewController *weakself = self;
+    dest.callback = ^void(ExerciseAddViewController *modal){
+        Routine *routine = [NSEntityDescription insertNewObjectForEntityForName:@"Routine"
+                                                         inManagedObjectContext:[CoreData context]];
+        routine.exercise = weakself.exercise;
+        routine.day = [Day dayWithName:modal.dayName inManagedObjectContext:[CoreData context]];
+        routine.sets = [NSNumber numberWithInt:modal.sets];
+        routine.reps = [NSNumber numberWithInt:modal.reps];
+        routine.position = [NSNumber numberWithUnsignedInteger:[[CoreData context] countForFetchRequest:[Routine fetchRequestForDay:routine.day] error:nil]];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
+    
 }
-*/
+
 
 @end

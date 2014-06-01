@@ -7,6 +7,7 @@
 //
 
 #import "Day+Create.h"
+#import "CoreData.h"
 
 @implementation Day (Create)
 
@@ -28,6 +29,12 @@
             day = [NSEntityDescription insertNewObjectForEntityForName:@"Day"
                                                      inManagedObjectContext:context];
             day.name = name;
+            day.index = [NSNumber numberWithUnsignedInteger:
+                         [[CoreData context]
+                            countForFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Day"]
+                            error:nil] - 1
+                         ];
+            NSLog(@"%@", day.index);
         } else {
             day = [matches lastObject];
         }

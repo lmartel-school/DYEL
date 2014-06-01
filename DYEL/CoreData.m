@@ -13,6 +13,7 @@
 @interface CoreData()
 
 @property (nonatomic, readwrite, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSArray *callbacks;
 
 @end
 
@@ -25,9 +26,9 @@
     return @[@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"];
 }
 
-+ (NSManagedObjectContext *)createContextWithCompletionHandler:(void (^)(BOOL success))completionHandler
++ (void)createContextWithCompletionHandler:(void (^)(BOOL success))completionHandler
 {
-    return ((CoreData *)[self instanceWithCompletionHandler:completionHandler]).managedObjectContext;
+    [self instanceWithCompletionHandler:completionHandler];
 }
 
 + (NSManagedObjectContext *)context
@@ -38,6 +39,7 @@
 // Private
 
 #define FILE_NAME @"DYEL_Data"
+#define EXPECTED_CALLBACKS 2
 
 + (instancetype)instance
 {
@@ -46,9 +48,24 @@
 
 + (instancetype)instanceWithCompletionHandler:(void (^)(BOOL success))completionHandler
 {
+    static NSMutableArray *callbacks;
     static id instance;
+    
+    if(!callbacks){
+        callbacks = [[NSMutableArray alloc] initWithCapacity:EXPECTED_CALLBACKS];
+    }
+    
     if(!instance){
-        instance = [[self alloc] initWithCompletionHandler:completionHandler];
+        [callbacks addObject:completionHandler];
+        if([callbacks count] == EXPECTED_CALLBACKS){
+            instance = [[self alloc] initWithCompletionHandler:^(BOOL success){
+                for (int i = 0; i < [callbacks count]; i++) {
+                    void (^callback)(BOOL success) = callbacks[i];
+                    callback(success);
+                }
+            }];
+        }
+        
     }
     return instance;
 }
@@ -91,6 +108,7 @@
 - (void)seed
 {
     // TODO ONLY SEED WHEN DB EMPTY
+    [Exercise exerciseWithName:@"Squat" inManagedObjectContext:self.managedObjectContext];
     [Exercise exerciseWithName:@"Deadlift" inManagedObjectContext:self.managedObjectContext];
     [Exercise exerciseWithName:@"Bench Press" inManagedObjectContext:self.managedObjectContext];
     [Exercise exerciseWithName:@"Overhead Press" inManagedObjectContext:self.managedObjectContext];

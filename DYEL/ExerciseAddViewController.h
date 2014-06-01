@@ -10,4 +10,10 @@
 
 @interface ExerciseAddViewController : UIViewController
 
+@property (nonatomic, strong) void (^callback)(ExerciseAddViewController *modal);
+
+@property (nonatomic, strong, readonly) NSString *dayName;
+@property (nonatomic, readonly) int sets;
+@property (nonatomic, readonly) int reps;
+
 @end

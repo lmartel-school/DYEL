@@ -14,5 +14,14 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * index;
+@property (nonatomic, retain) NSSet *routines;
+@end
+
+@interface Day (CoreDataGeneratedAccessors)
+
+- (void)addRoutinesObject:(NSManagedObject *)value;
+- (void)removeRoutinesObject:(NSManagedObject *)value;
+- (void)addRoutines:(NSSet *)values;
+- (void)removeRoutines:(NSSet *)values;
 
 @end

@@ -1,22 +1,31 @@
 //
-//  ExerciseTableViewController.m
+//  RoutineTableViewController.m
 //  DYEL
 //
-//  Created by Leo Martel on 5/31/14.
+//  Created by Leo Martel on 6/1/14.
 //  Copyright (c) 2014 leopmartel. All rights reserved.
 //
 
-#import "ExerciseTableViewController.h"
-#import "ExerciseDetailViewController.h"
+#import "RoutineTableViewController.h"
 #import "CoreData.h"
-#import "Exercise+Create.h"
+#import "Routine+Fetch.h"
+#import "Exercise.h"
 
+@interface RoutineTableViewController ()
 
-@interface ExerciseTableViewController ()
+@property (nonatomic, strong) NSMutableDictionary *resultsByDay;
 
 @end
 
-@implementation ExerciseTableViewController
+@implementation RoutineTableViewController
+
+- (NSDictionary *)resultsByDay
+{
+    if(!_resultsByDay){
+        _resultsByDay = [[NSMutableDictionary alloc] init];
+    }
+    return _resultsByDay;
+}
 
 - (void)awakeFromNib
 {
@@ -26,57 +35,51 @@
     
     [CoreData createContextWithCompletionHandler:^(BOOL success) {
         if(success){
-            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
-            request.predicate = [self makePredicate];
-            request.sortDescriptors = [self makeSortDescriptors];
-            
-            self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+            self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[Routine fetchRequest]
                                                                                 managedObjectContext:[CoreData context]
                                                                                   sectionNameKeyPath:nil
                                                                                            cacheName:nil];
+//            [[self.fetchedResultsController fetchedObjects] makeObjectsPerformSelector:@selector(populate:) withObject:self.resultsByDay];
         } else {
             self.fetchedResultsController = nil;
-            NSLog(@"[Error] ExerciseTableViewController awakeFromNib");
+            NSLog(@"[Error] RoutineTableViewController awakeFromNib");
         }
-
+        
     }];
-}
-
--(NSArray *)makeSortDescriptors
-{
-    return @[
-             [NSSortDescriptor sortDescriptorWithKey:@"name"
-                                           ascending:YES
-                                            selector:@selector(localizedStandardCompare:)]
-             ];
-}
-
--(NSPredicate *)makePredicate
-{
-    return nil;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [[CoreData dayNames] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.fetchedResultsController.fetchedObjects count];
+    NSString *dayName = [CoreData dayNames][section];
+    return [[[self.fetchedResultsController fetchedObjects] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"day.name = %@", dayName]] count];
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [CoreData dayNames][section];
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Exercise Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Routine Cell" forIndexPath:indexPath];
     
-    Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = exercise.name;
+    NSString *dayName = [CoreData dayNames][indexPath.section];
+    Routine *routine = [[self.fetchedResultsController fetchedObjects] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"day.name = %@", dayName]][indexPath.row];
+    
+    cell.textLabel.text = routine.exercise.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@x%@", routine.sets, routine.reps];
     
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -116,13 +119,15 @@
 }
 */
 
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ExerciseDetailViewController *dest = [segue destinationViewController];
-    dest.exercise = [Exercise exerciseWithName:sender.textLabel.text inManagedObjectContext:[CoreData context]];
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end

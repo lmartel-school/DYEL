@@ -11,7 +11,7 @@
 @interface CoreData : NSObject
 
 + (NSArray *)dayNames;
-+ (NSManagedObjectContext *)createContextWithCompletionHandler:(void (^)(BOOL success))completionHandler;
++ (void)createContextWithCompletionHandler:(void (^)(BOOL success))completionHandler;
 + (NSManagedObjectContext *)context;
 
 @end
