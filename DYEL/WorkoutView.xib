@@ -46,6 +46,7 @@
                                 <constraint firstAttribute="width" constant="80" id="vNt-Re-AMp"/>
                                 <constraint firstAttribute="height" constant="80" id="wD1-bH-WpF"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
                             <state key="normal" title="5">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
