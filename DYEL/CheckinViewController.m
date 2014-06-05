@@ -14,6 +14,8 @@
 #import "WorkoutViewController.h"
 #import "Gym+MapAnnotation.h"
 #import "CoreData.h"
+#import "Routine+Fetch.h"
+#import "Day+Create.h"
 
 
 @interface CheckinViewController() <MKMapViewDelegate>
@@ -78,10 +80,23 @@
 }
 
 // Testing note: roble gym lat/long 37.426240,-122.175036
-#define MAX_DISTANCE_FROM_GYM 1000 // meters
+#define MAX_DISTANCE_FROM_GYM 100 // meters
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
+    Day *today = [Day today];
+    int routineCountToday = [[CoreData context] countForFetchRequest:[Routine fetchRequestForDay:today]
+                                                               error:nil];
+    if(!routineCountToday){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you even lift?"
+                                                        message:[NSString stringWithFormat:@"You don't have any workouts scheduled for %@s. Add some lifts in the Plan tab, or enjoy the rest day.", today.name]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Sweatpants!"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
     CLLocation *here = self.locationManager.location;
     Gym *gym = view.annotation;
 
@@ -136,5 +151,8 @@
 //        }
 //    }];
 }
+
+
+#pragma mark TabBarDelegate
 
 @end

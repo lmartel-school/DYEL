@@ -12,7 +12,7 @@
 #import "Exercise+Create.h"
 #import "ExerciseDetailViewController.h"
 
-@interface RoutineTableViewController ()
+@interface RoutineTableViewController () <UITabBarControllerDelegate>
 
 @end
 

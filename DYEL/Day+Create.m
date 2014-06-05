@@ -42,4 +42,12 @@
     return day;
 }
 
++ (Day *)today
+{
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *weekdayComponents =[gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    NSInteger index = [weekdayComponents weekday] - 1;
+    return [self dayWithName:[CoreData dayNames][index] inManagedObjectContext:[CoreData context]];
+}
+
 @end

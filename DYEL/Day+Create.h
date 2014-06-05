@@ -10,6 +10,7 @@
 
 @interface Day (Create)
 
++ (Day *)today;
 + (Day *)dayWithName:(NSString *)name
 inManagedObjectContext:(NSManagedObjectContext *)context;
 

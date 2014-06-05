@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Workout.h"
+#import "Routine.h"
 
 @interface WorkoutView : UIView
+
+@property (nonatomic, strong) Routine *routine;
+@property (nonatomic, strong) Workout *workout;
 
 @end

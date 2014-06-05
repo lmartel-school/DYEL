@@ -10,6 +10,7 @@
 
 @interface CoreData : NSObject
 
++ (UIColor *)detailColor;
 + (NSArray *)dayNames;
 + (void)createContextWithCompletionHandler:(void (^)(BOOL success))completionHandler;
 + (NSManagedObjectContext *)context;

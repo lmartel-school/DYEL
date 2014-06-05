@@ -25,12 +25,6 @@
 
 @implementation ExerciseAddViewController
 
-+ (UIColor *)detailColor
-{
-    // Aqua crayon from InterfaceBuilder
-    return [UIColor colorWithRed:5.0/255.0 green:133.0/255.0 blue:1.f alpha:1.f];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -40,7 +34,7 @@
     self.button.clipsToBounds = YES;
     self.button.layer.cornerRadius = 40.0;
     
-    self.button.layer.borderColor = [self.class detailColor].CGColor;
+    self.button.layer.borderColor = [CoreData detailColor].CGColor;
     self.button.layer.borderWidth = 1.0;
     
     self.dayName = [CoreData dayNames][0];
@@ -63,7 +57,7 @@
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     NSString *title = [CoreData dayNames][row];
-    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[self.class detailColor]}];
+    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[CoreData detailColor]}];
     
     return attString;
     

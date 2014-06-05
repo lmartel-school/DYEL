@@ -23,6 +23,7 @@
 		B3AC2541194056B800C865E6 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2540194056B800C865E6 /* Exercise.m */; };
 		B3AC2544194056B800C865E6 /* Routine.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2543194056B800C865E6 /* Routine.m */; };
 		B3AC254719405EF500C865E6 /* WorkoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC254619405EF500C865E6 /* WorkoutView.m */; };
+		B3AC254B194099A100C865E6 /* WorkoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AC254A194099A100C865E6 /* WorkoutView.xib */; };
 		B3BACEE5193AD18100AA8E77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE4193AD18100AA8E77 /* Foundation.framework */; };
 		B3BACEE7193AD18100AA8E77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE6193AD18100AA8E77 /* CoreGraphics.framework */; };
 		B3BACEE9193AD18100AA8E77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE8193AD18100AA8E77 /* UIKit.framework */; };
@@ -30,7 +31,6 @@
 		B3BACEF1193AD18100AA8E77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACEF0193AD18100AA8E77 /* main.m */; };
 		B3BACEF5193AD18100AA8E77 /* DYELAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACEF4193AD18100AA8E77 /* DYELAppDelegate.m */; };
 		B3BACEF8193AD18100AA8E77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3BACEF6193AD18100AA8E77 /* Main.storyboard */; };
-		B3BACEFB193AD18100AA8E77 /* DYELViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACEFA193AD18100AA8E77 /* DYELViewController.m */; };
 		B3BACF04193AD18100AA8E77 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACF03193AD18100AA8E77 /* XCTest.framework */; };
 		B3BACF05193AD18100AA8E77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE4193AD18100AA8E77 /* Foundation.framework */; };
 		B3BACF06193AD18100AA8E77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE8193AD18100AA8E77 /* UIKit.framework */; };
@@ -88,6 +88,7 @@
 		B3AC2543194056B800C865E6 /* Routine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routine.m; sourceTree = "<group>"; };
 		B3AC254519405EF500C865E6 /* WorkoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutView.h; sourceTree = "<group>"; };
 		B3AC254619405EF500C865E6 /* WorkoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutView.m; sourceTree = "<group>"; };
+		B3AC254A194099A100C865E6 /* WorkoutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutView.xib; sourceTree = "<group>"; };
 		B3BACEE1193AD18100AA8E77 /* DYEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BACEE4193AD18100AA8E77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3BACEE6193AD18100AA8E77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,8 +100,6 @@
 		B3BACEF3193AD18100AA8E77 /* DYELAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYELAppDelegate.h; sourceTree = "<group>"; };
 		B3BACEF4193AD18100AA8E77 /* DYELAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYELAppDelegate.m; sourceTree = "<group>"; };
 		B3BACEF7193AD18100AA8E77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B3BACEF9193AD18100AA8E77 /* DYELViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYELViewController.h; sourceTree = "<group>"; };
-		B3BACEFA193AD18100AA8E77 /* DYELViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYELViewController.m; sourceTree = "<group>"; };
 		B3BACF02193AD18100AA8E77 /* DYELTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DYELTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BACF03193AD18100AA8E77 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B3BACF0B193AD18100AA8E77 /* DYELTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DYELTests-Info.plist"; sourceTree = "<group>"; };
@@ -202,9 +201,6 @@
 				B3BACF19193AD3A400AA8E77 /* Controllers */,
 				B3BACEF3193AD18100AA8E77 /* DYELAppDelegate.h */,
 				B3BACEF4193AD18100AA8E77 /* DYELAppDelegate.m */,
-				B3BACEF6193AD18100AA8E77 /* Main.storyboard */,
-				B3BACEF9193AD18100AA8E77 /* DYELViewController.h */,
-				B3BACEFA193AD18100AA8E77 /* DYELViewController.m */,
 				B3BACEEB193AD18100AA8E77 /* Supporting Files */,
 				B3BACF21193AD4DE00AA8E77 /* CoreData.h */,
 				B3BACF22193AD4DE00AA8E77 /* CoreData.m */,
@@ -311,8 +307,10 @@
 		B3BACF36193AE9C800AA8E77 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3BACEF6193AD18100AA8E77 /* Main.storyboard */,
 				B3AC254519405EF500C865E6 /* WorkoutView.h */,
 				B3AC254619405EF500C865E6 /* WorkoutView.m */,
+				B3AC254A194099A100C865E6 /* WorkoutView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -411,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3AC254B194099A100C865E6 /* WorkoutView.xib in Resources */,
 				B3BACF46193AF98000AA8E77 /* Images.xcassets in Resources */,
 				B3BACEEF193AD18100AA8E77 /* InfoPlist.strings in Resources */,
 				B3BACEF8193AD18100AA8E77 /* Main.storyboard in Resources */,
@@ -447,7 +446,6 @@
 				B3AC25321940495D00C865E6 /* Workout+Create.m in Sources */,
 				B3AC252C194024FC00C865E6 /* Gym+MapAnnotation.m in Sources */,
 				B3AC254719405EF500C865E6 /* WorkoutView.m in Sources */,
-				B3BACEFB193AD18100AA8E77 /* DYELViewController.m in Sources */,
 				B3AC2541194056B800C865E6 /* Exercise.m in Sources */,
 				B3AC253E194056B800C865E6 /* Day.m in Sources */,
 				B3BACF1C193AD3C800AA8E77 /* ExerciseTableViewController.m in Sources */,

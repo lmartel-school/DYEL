@@ -21,6 +21,12 @@
 
 // Public API
 
++ (UIColor *)detailColor
+{
+    // Aqua crayon from InterfaceBuilder
+    return [UIColor colorWithRed:5.0/255.0 green:133.0/255.0 blue:1.f alpha:1.f];
+}
+
 + (NSArray *)dayNames
 {
     return @[@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"];
