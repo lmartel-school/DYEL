@@ -1,20 +1,20 @@
 //
-//  Exercise.m
+//  Lift.m
 //  DYEL
 //
 //  Created by Leo Martel on 6/5/14.
 //  Copyright (c) 2014 leopmartel. All rights reserved.
 //
 
-#import "Exercise.h"
 #import "Lift.h"
-#import "Routine.h"
+#import "Exercise.h"
+#import "Workout.h"
 
 
-@implementation Exercise
+@implementation Lift
 
-@dynamic name;
-@dynamic routines;
-@dynamic lifts;
+@dynamic reps;
+@dynamic workout;
+@dynamic exercise;
 
 @end

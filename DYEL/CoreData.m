@@ -84,7 +84,7 @@
                     self.managedObjectContext = document.managedObjectContext;
                     [self seed];
                 } else {
-//                    [[NSFileManager defaultManager] removeItemAtPath:[url path] error:nil]; // TODO REMOVE AFTER TESTING
+                    // [[NSFileManager defaultManager] removeItemAtPath:[url path] error:nil]; // TODO REMOVE AFTER TESTING
                 }
                 completionHandler(success);
             }];

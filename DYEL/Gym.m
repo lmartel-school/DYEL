@@ -1,19 +1,20 @@
 //
-//  Day.m
+//  Gym.m
 //  DYEL
 //
 //  Created by Leo Martel on 6/5/14.
 //  Copyright (c) 2014 leopmartel. All rights reserved.
 //
 
-#import "Day.h"
-#import "Routine.h"
+#import "Gym.h"
+#import "Workout.h"
 
 
-@implementation Day
+@implementation Gym
 
-@dynamic index;
+@dynamic latitude;
+@dynamic longitude;
 @dynamic name;
-@dynamic routines;
+@dynamic workouts;
 
 @end

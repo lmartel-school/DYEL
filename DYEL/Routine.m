@@ -2,7 +2,7 @@
 //  Routine.m
 //  DYEL
 //
-//  Created by Leo Martel on 6/1/14.
+//  Created by Leo Martel on 6/5/14.
 //  Copyright (c) 2014 leopmartel. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @implementation Routine
 
-@dynamic sets;
-@dynamic reps;
 @dynamic position;
-@dynamic exercise;
+@dynamic reps;
+@dynamic sets;
 @dynamic day;
+@dynamic exercise;
 
 @end

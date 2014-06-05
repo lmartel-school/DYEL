@@ -1,19 +1,13 @@
 //
-//  Day.m
+//  WorkoutView.h
 //  DYEL
 //
 //  Created by Leo Martel on 6/5/14.
 //  Copyright (c) 2014 leopmartel. All rights reserved.
 //
 
-#import "Day.h"
-#import "Routine.h"
+#import <UIKit/UIKit.h>
 
-
-@implementation Day
-
-@dynamic index;
-@dynamic name;
-@dynamic routines;
+@interface WorkoutView : UIView
 
 @end

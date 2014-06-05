@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3AC250D193FE86C00C865E6 /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC250C193FE86C00C865E6 /* CheckinViewController.m */; };
+		B3AC250F193FE93600C865E6 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AC250E193FE93600C865E6 /* GLKit.framework */; };
+		B3AC2511193FE96600C865E6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AC2510193FE96600C865E6 /* MapKit.framework */; };
+		B3AC251C193FEBFF00C865E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AC251B193FEBFF00C865E6 /* QuartzCore.framework */; };
+		B3AC251E193FEC0700C865E6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AC251D193FEC0700C865E6 /* OpenGLES.framework */; };
+		B3AC2521193FEE9D00C865E6 /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2520193FEE9D00C865E6 /* WorkoutViewController.m */; };
+		B3AC2523193FEF4600C865E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AC2522193FEF4600C865E6 /* CoreLocation.framework */; };
+		B3AC252C194024FC00C865E6 /* Gym+MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC252B194024FC00C865E6 /* Gym+MapAnnotation.m */; };
+		B3AC25321940495D00C865E6 /* Workout+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC25311940495D00C865E6 /* Workout+Create.m */; };
+		B3AC2535194056B700C865E6 /* Lift.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2534194056B700C865E6 /* Lift.m */; };
+		B3AC2538194056B800C865E6 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2537194056B800C865E6 /* Workout.m */; };
+		B3AC253B194056B800C865E6 /* Gym.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC253A194056B800C865E6 /* Gym.m */; };
+		B3AC253E194056B800C865E6 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC253D194056B800C865E6 /* Day.m */; };
+		B3AC2541194056B800C865E6 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2540194056B800C865E6 /* Exercise.m */; };
+		B3AC2544194056B800C865E6 /* Routine.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2543194056B800C865E6 /* Routine.m */; };
+		B3AC254719405EF500C865E6 /* WorkoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC254619405EF500C865E6 /* WorkoutView.m */; };
 		B3BACEE5193AD18100AA8E77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE4193AD18100AA8E77 /* Foundation.framework */; };
 		B3BACEE7193AD18100AA8E77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE6193AD18100AA8E77 /* CoreGraphics.framework */; };
 		B3BACEE9193AD18100AA8E77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE8193AD18100AA8E77 /* UIKit.framework */; };
@@ -29,10 +45,7 @@
 		B3BACF46193AF98000AA8E77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3BACF45193AF98000AA8E77 /* Images.xcassets */; };
 		B3BACF49193B0D8C00AA8E77 /* ExerciseAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF48193B0D8C00AA8E77 /* ExerciseAddViewController.m */; };
 		B3BACF4F193B0F1500AA8E77 /* Day+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF4E193B0F1500AA8E77 /* Day+Create.m */; };
-		B3BACF52193B361300AA8E77 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF51193B361300AA8E77 /* Exercise.m */; };
-		B3BACF55193B361400AA8E77 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF54193B361400AA8E77 /* Day.m */; };
 		B3BACF5B193B369000AA8E77 /* RoutineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF5A193B369000AA8E77 /* RoutineTableViewController.m */; };
-		B3BACF5E193B38C000AA8E77 /* Routine.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF5D193B38C000AA8E77 /* Routine.m */; };
 		B3BACF61193B3FE400AA8E77 /* Routine+Fetch.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +60,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3AC250B193FE86B00C865E6 /* CheckinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinViewController.h; sourceTree = "<group>"; };
+		B3AC250C193FE86C00C865E6 /* CheckinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinViewController.m; sourceTree = "<group>"; };
+		B3AC250E193FE93600C865E6 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		B3AC2510193FE96600C865E6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B3AC2518193FE9C700C865E6 /* DYEL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DYEL.entitlements; sourceTree = "<group>"; };
+		B3AC251B193FEBFF00C865E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B3AC251D193FEC0700C865E6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B3AC251F193FEE9D00C865E6 /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
+		B3AC2520193FEE9D00C865E6 /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
+		B3AC2522193FEF4600C865E6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B3AC252A194024FC00C865E6 /* Gym+MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Gym+MapAnnotation.h"; sourceTree = "<group>"; };
+		B3AC252B194024FC00C865E6 /* Gym+MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Gym+MapAnnotation.m"; sourceTree = "<group>"; };
+		B3AC25301940495D00C865E6 /* Workout+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Workout+Create.h"; sourceTree = "<group>"; };
+		B3AC25311940495D00C865E6 /* Workout+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Workout+Create.m"; sourceTree = "<group>"; };
+		B3AC2533194056B700C865E6 /* Lift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lift.h; sourceTree = "<group>"; };
+		B3AC2534194056B700C865E6 /* Lift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lift.m; sourceTree = "<group>"; };
+		B3AC2536194056B800C865E6 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
+		B3AC2537194056B800C865E6 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
+		B3AC2539194056B800C865E6 /* Gym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gym.h; sourceTree = "<group>"; };
+		B3AC253A194056B800C865E6 /* Gym.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gym.m; sourceTree = "<group>"; };
+		B3AC253C194056B800C865E6 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
+		B3AC253D194056B800C865E6 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
+		B3AC253F194056B800C865E6 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		B3AC2540194056B800C865E6 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		B3AC2542194056B800C865E6 /* Routine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routine.h; sourceTree = "<group>"; };
+		B3AC2543194056B800C865E6 /* Routine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routine.m; sourceTree = "<group>"; };
+		B3AC254519405EF500C865E6 /* WorkoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutView.h; sourceTree = "<group>"; };
+		B3AC254619405EF500C865E6 /* WorkoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutView.m; sourceTree = "<group>"; };
 		B3BACEE1193AD18100AA8E77 /* DYEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BACEE4193AD18100AA8E77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3BACEE6193AD18100AA8E77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,14 +122,8 @@
 		B3BACF48193B0D8C00AA8E77 /* ExerciseAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseAddViewController.m; sourceTree = "<group>"; };
 		B3BACF4D193B0F1500AA8E77 /* Day+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Day+Create.h"; sourceTree = "<group>"; };
 		B3BACF4E193B0F1500AA8E77 /* Day+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Day+Create.m"; sourceTree = "<group>"; };
-		B3BACF50193B361300AA8E77 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
-		B3BACF51193B361300AA8E77 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
-		B3BACF53193B361400AA8E77 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
-		B3BACF54193B361400AA8E77 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		B3BACF59193B369000AA8E77 /* RoutineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutineTableViewController.h; sourceTree = "<group>"; };
 		B3BACF5A193B369000AA8E77 /* RoutineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutineTableViewController.m; sourceTree = "<group>"; };
-		B3BACF5C193B38C000AA8E77 /* Routine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routine.h; sourceTree = "<group>"; };
-		B3BACF5D193B38C000AA8E77 /* Routine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routine.m; sourceTree = "<group>"; };
 		B3BACF5F193B3FE400AA8E77 /* Routine+Fetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Routine+Fetch.h"; sourceTree = "<group>"; };
 		B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Routine+Fetch.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +133,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3AC2523193FEF4600C865E6 /* CoreLocation.framework in Frameworks */,
+				B3AC251E193FEC0700C865E6 /* OpenGLES.framework in Frameworks */,
+				B3AC251C193FEBFF00C865E6 /* QuartzCore.framework in Frameworks */,
+				B3AC250F193FE93600C865E6 /* GLKit.framework in Frameworks */,
 				B3BACEE7193AD18100AA8E77 /* CoreGraphics.framework in Frameworks */,
+				B3AC2511193FE96600C865E6 /* MapKit.framework in Frameworks */,
 				B3BACEE9193AD18100AA8E77 /* UIKit.framework in Frameworks */,
 				B3BACEE5193AD18100AA8E77 /* Foundation.framework in Frameworks */,
 			);
@@ -139,6 +179,11 @@
 		B3BACEE3193AD18100AA8E77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3AC2522193FEF4600C865E6 /* CoreLocation.framework */,
+				B3AC251D193FEC0700C865E6 /* OpenGLES.framework */,
+				B3AC251B193FEBFF00C865E6 /* QuartzCore.framework */,
+				B3AC2510193FE96600C865E6 /* MapKit.framework */,
+				B3AC250E193FE93600C865E6 /* GLKit.framework */,
 				B3BACEE4193AD18100AA8E77 /* Foundation.framework */,
 				B3BACEE6193AD18100AA8E77 /* CoreGraphics.framework */,
 				B3BACEE8193AD18100AA8E77 /* UIKit.framework */,
@@ -150,6 +195,7 @@
 		B3BACEEA193AD18100AA8E77 /* DYEL */ = {
 			isa = PBXGroup;
 			children = (
+				B3AC2518193FE9C700C865E6 /* DYEL.entitlements */,
 				B3BACF36193AE9C800AA8E77 /* Views */,
 				B3BACF28193AD92200AA8E77 /* Lib */,
 				B3BACF24193AD7A400AA8E77 /* Models */,
@@ -207,6 +253,10 @@
 				B3BACF48193B0D8C00AA8E77 /* ExerciseAddViewController.m */,
 				B3BACF59193B369000AA8E77 /* RoutineTableViewController.h */,
 				B3BACF5A193B369000AA8E77 /* RoutineTableViewController.m */,
+				B3AC250B193FE86B00C865E6 /* CheckinViewController.h */,
+				B3AC250C193FE86C00C865E6 /* CheckinViewController.m */,
+				B3AC251F193FEE9D00C865E6 /* WorkoutViewController.h */,
+				B3AC2520193FEE9D00C865E6 /* WorkoutViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -223,19 +273,29 @@
 		B3BACF24193AD7A400AA8E77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B3BACF5C193B38C000AA8E77 /* Routine.h */,
-				B3BACF5D193B38C000AA8E77 /* Routine.m */,
 				B3BACF25193AD7B800AA8E77 /* Model.xcdatamodeld */,
-				B3BACF53193B361400AA8E77 /* Day.h */,
-				B3BACF54193B361400AA8E77 /* Day.m */,
-				B3BACF50193B361300AA8E77 /* Exercise.h */,
-				B3BACF51193B361300AA8E77 /* Exercise.m */,
+				B3AC2539194056B800C865E6 /* Gym.h */,
+				B3AC253A194056B800C865E6 /* Gym.m */,
+				B3AC2542194056B800C865E6 /* Routine.h */,
+				B3AC2543194056B800C865E6 /* Routine.m */,
+				B3AC253F194056B800C865E6 /* Exercise.h */,
+				B3AC2540194056B800C865E6 /* Exercise.m */,
+				B3AC253C194056B800C865E6 /* Day.h */,
+				B3AC253D194056B800C865E6 /* Day.m */,
+				B3AC2536194056B800C865E6 /* Workout.h */,
+				B3AC2537194056B800C865E6 /* Workout.m */,
+				B3AC2533194056B700C865E6 /* Lift.h */,
+				B3AC2534194056B700C865E6 /* Lift.m */,
 				B3BACF4D193B0F1500AA8E77 /* Day+Create.h */,
 				B3BACF4E193B0F1500AA8E77 /* Day+Create.m */,
 				B3BACF30193ADA8500AA8E77 /* Exercise+Create.h */,
 				B3BACF31193ADA8500AA8E77 /* Exercise+Create.m */,
 				B3BACF5F193B3FE400AA8E77 /* Routine+Fetch.h */,
 				B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */,
+				B3AC252A194024FC00C865E6 /* Gym+MapAnnotation.h */,
+				B3AC252B194024FC00C865E6 /* Gym+MapAnnotation.m */,
+				B3AC25301940495D00C865E6 /* Workout+Create.h */,
+				B3AC25311940495D00C865E6 /* Workout+Create.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -251,6 +311,8 @@
 		B3BACF36193AE9C800AA8E77 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3AC254519405EF500C865E6 /* WorkoutView.h */,
+				B3AC254619405EF500C865E6 /* WorkoutView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -303,6 +365,23 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = leopmartel;
 				TargetAttributes = {
+					B3BACEE0193AD18100AA8E77 = {
+						DevelopmentTeam = FUTU96J3U9;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Passbook = {
+								enabled = 0;
+							};
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					B3BACF01193AD18100AA8E77 = {
 						TestTargetID = B3BACEE0193AD18100AA8E77;
 					};
@@ -353,22 +432,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3BACF55193B361400AA8E77 /* Day.m in Sources */,
+				B3AC250D193FE86C00C865E6 /* CheckinViewController.m in Sources */,
 				B3BACF35193AE9AD00AA8E77 /* ExerciseDetailViewController.m in Sources */,
 				B3BACEF5193AD18100AA8E77 /* DYELAppDelegate.m in Sources */,
 				B3BACEF1193AD18100AA8E77 /* main.m in Sources */,
 				B3BACF61193B3FE400AA8E77 /* Routine+Fetch.m in Sources */,
+				B3AC2544194056B800C865E6 /* Routine.m in Sources */,
 				B3BACF5B193B369000AA8E77 /* RoutineTableViewController.m in Sources */,
 				B3BACF23193AD4DE00AA8E77 /* CoreData.m in Sources */,
+				B3AC2538194056B800C865E6 /* Workout.m in Sources */,
+				B3AC2521193FEE9D00C865E6 /* WorkoutViewController.m in Sources */,
 				B3BACF27193AD7B800AA8E77 /* Model.xcdatamodeld in Sources */,
-				B3BACF52193B361300AA8E77 /* Exercise.m in Sources */,
 				B3BACF49193B0D8C00AA8E77 /* ExerciseAddViewController.m in Sources */,
-				B3BACF5E193B38C000AA8E77 /* Routine.m in Sources */,
+				B3AC25321940495D00C865E6 /* Workout+Create.m in Sources */,
+				B3AC252C194024FC00C865E6 /* Gym+MapAnnotation.m in Sources */,
+				B3AC254719405EF500C865E6 /* WorkoutView.m in Sources */,
 				B3BACEFB193AD18100AA8E77 /* DYELViewController.m in Sources */,
+				B3AC2541194056B800C865E6 /* Exercise.m in Sources */,
+				B3AC253E194056B800C865E6 /* Day.m in Sources */,
 				B3BACF1C193AD3C800AA8E77 /* ExerciseTableViewController.m in Sources */,
+				B3AC2535194056B700C865E6 /* Lift.m in Sources */,
 				B3BACF32193ADA8500AA8E77 /* Exercise+Create.m in Sources */,
 				B3BACF4F193B0F1500AA8E77 /* Day+Create.m in Sources */,
 				B3BACF1F193AD3FE00AA8E77 /* CoreDataTableViewController.m in Sources */,
+				B3AC253B194056B800C865E6 /* Gym.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,10 +580,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DYEL/DYEL-Prefix.pch";
 				INFOPLIST_FILE = "DYEL/DYEL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -506,10 +596,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DYEL/DYEL-Prefix.pch";
 				INFOPLIST_FILE = "DYEL/DYEL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -573,6 +666,7 @@
 				B3BACF15193AD18100AA8E77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3BACF16193AD18100AA8E77 /* Build configuration list for PBXNativeTarget "DYELTests" */ = {
 			isa = XCConfigurationList;
@@ -581,6 +675,7 @@
 				B3BACF18193AD18100AA8E77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
