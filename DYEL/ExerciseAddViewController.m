@@ -8,6 +8,7 @@
 
 #import "ExerciseAddViewController.h"
 #import "CoreData.h"
+#import "Day+Create.h"
 
 @interface ExerciseAddViewController ()<UIPickerViewDataSource,UIPickerViewDelegate>
 
@@ -15,6 +16,7 @@
 @property (nonatomic, readwrite) int sets;
 @property (nonatomic, readwrite) int reps;
 
+@property (weak, nonatomic) IBOutlet UIPickerView *dayPicker;
 @property (weak, nonatomic) IBOutlet UILabel *setsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *repsLabel;
 
@@ -31,13 +33,15 @@
     
     self.button.backgroundColor = [UIColor whiteColor];
     
+    [self.dayPicker selectRow:[[Day today].index integerValue] inComponent:0 animated:NO];
+    
     self.button.clipsToBounds = YES;
     self.button.layer.cornerRadius = 40.0;
     
     self.button.layer.borderColor = [CoreData detailColor].CGColor;
     self.button.layer.borderWidth = 1.0;
     
-    self.dayName = [CoreData dayNames][0];
+    self.dayName = [CoreData dayNames][ [self.dayPicker selectedRowInComponent:0] ];
     self.sets = 1;
     self.reps = 1;
 }
@@ -60,10 +64,9 @@
     NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[CoreData detailColor]}];
     
     return attString;
-    
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.dayName = [CoreData dayNames][row];
 }
@@ -87,7 +90,10 @@
 }
 
 - (IBAction)touchUp:(UIButton *)sender {
-    self.button.backgroundColor = [UIColor whiteColor];
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        self.button.backgroundColor = [UIColor whiteColor];
+    });
 }
 
 

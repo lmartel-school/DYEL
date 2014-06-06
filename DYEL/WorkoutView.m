@@ -8,25 +8,31 @@
 
 #import "WorkoutView.h"
 #import "CoreData.h"
+#import "Exercise.h"
+#import "Lift+Create.h"
+#import "LiftCollectionView.h"
+#import "Routine+Fetch.h"
 
 @interface WorkoutView()
 
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
 @property (weak, nonatomic) IBOutlet UITextField *weightField;
+
+@property (weak, nonatomic) IBOutlet LiftCollectionView *liftCollectionView;
+
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIStepper *repStepper;
 
 @end
 
 @implementation WorkoutView
 
+#pragma mark Initialization
+
 - (void)awakeFromNib
 {
-    self.weightField.keyboardType = UIKeyboardTypeNumberPad;
-    
-    self.button.clipsToBounds = YES;
-    self.button.layer.cornerRadius = 40.0;
-    self.button.layer.borderColor = [UIColor blackColor].CGColor;
-    self.button.layer.borderWidth = 1.0;
+    self.weightField.keyboardType = UIKeyboardTypeDecimalPad;
     
     // Toolbar with help from https://stackoverflow.com/questions/584538/how-to-show-button-done-on-number-pad-on-iphone
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
@@ -38,7 +44,57 @@
                            nil];
     [numberToolbar sizeToFit];
     self.weightField.inputAccessoryView = numberToolbar;
+    
+    self.button.clipsToBounds = YES;
+    self.button.layer.cornerRadius = 40.0;
+    self.button.layer.borderColor = [UIColor blackColor].CGColor;
+    self.button.layer.borderWidth = 1.0;
+    self.button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.liftCollectionView registerNib:[UINib nibWithNibName:@"LiftCollectionViewCell" bundle:nil]
+              forCellWithReuseIdentifier:@"Lift Cell"];
 }
+
+- (void)setDelegate:(id<UICollectionViewDelegate>)delegate
+{
+    _delegate = delegate;
+    self.liftCollectionView.delegate = delegate;
+}
+
+- (void)setDataSource:(id<UICollectionViewDataSource>)dataSource
+{
+    _dataSource = dataSource;
+    self.liftCollectionView.dataSource = dataSource;
+}
+
+- (void)setRoutine:(Routine *)routine
+{
+    _routine = routine;
+    
+    self.headerLabel.text = [NSString stringWithFormat:@"%@ %@x%@", routine.exercise.name, routine.sets, routine.reps];
+    [self updateProgressAnimated:NO];
+    
+    NSNumber *suggestion = [routine suggestWeight];
+    if(suggestion) self.weightField.text = [suggestion stringValue];
+    
+    self.repStepper.value = [routine.reps doubleValue];
+    [self repsChanged:self.repStepper];
+}
+
+- (void)setWorkout:(Workout *)workout
+{
+    _workout = workout;
+    self.liftCollectionView.workout = self.workout;
+}
+
+- (void)updateProgressAnimated:(BOOL)animate
+{
+    double progress = self.routine.lifts.count / [self.routine.sets doubleValue];
+    [self.progress setProgress:progress
+                      animated:animate];
+}
+
+#pragma mark NumberPad
 
 - (void)cancelNumberPad
 {
@@ -48,39 +104,50 @@
 
 - (void)doneWithNumberPad
 {
-    NSString *num = self.weightField.text;
-    NSLog(@"%@", num);
     [self.weightField resignFirstResponder];
 }
 
+#pragma mark Buttons
 
-- (IBAction)doneClicked:(id)sender
-{
-    NSLog(@"Done Clicked.");
-    [self.weightField endEditing:YES];
+- (IBAction)repsChanged:(UIStepper *)unused {
+    [self.button setTitle:[NSString stringWithFormat:@"%d", (int) self.repStepper.value]
+                 forState:UIControlStateNormal];
+}
+
+- (IBAction)touchDown:(UIButton *)unused {
+    self.button.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+}
+
+- (IBAction)touchUp:(UIButton *)unused {
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        self.button.backgroundColor = [UIColor whiteColor];
+    });
 }
 
 
+- (IBAction)buttonPressed:(UIButton *)unused {
 
-
-
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    if(![self.weightField.text length]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"What do you even lift?"
+                                                        message:@"You need to set the amount of weight you're lifting before you can start checking off sets."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Lightweight baby!"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
     }
-    return self;
+    Lift *lift = [Lift createLiftWithRoutine:self.routine
+                                     workout:self.workout
+                                        reps:(int) self.repStepper.value
+                                      weight:self.weightField.text.doubleValue];
+    
+    [self.liftCollectionView reloadData];
+    [self.liftCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:[lift.position integerValue]
+                                                                        inSection:0]
+                                    atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    [self updateProgressAnimated:YES];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

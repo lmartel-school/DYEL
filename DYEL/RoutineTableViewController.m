@@ -59,7 +59,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     int index = [[[self.fetchedResultsController sections][section] name] intValue];
-    return [CoreData dayNames][index];
+    return [CoreData dayNames][index % 7]; // TODO debug why this is needed
 }
 
 

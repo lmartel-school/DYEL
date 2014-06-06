@@ -79,7 +79,7 @@
     // Do nothing extra
 }
 
-// Testing note: roble gym lat/long 37.426240,-122.175036
+// TODO set to something sensible
 #define MAX_DISTANCE_FROM_GYM 100 // meters
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
@@ -88,7 +88,7 @@
     int routineCountToday = [[CoreData context] countForFetchRequest:[Routine fetchRequestForDay:today]
                                                                error:nil];
     if(!routineCountToday){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you even lift?"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Should you even lift?"
                                                         message:[NSString stringWithFormat:@"You don't have any workouts scheduled for %@s. Add some lifts in the Plan tab, or enjoy the rest day.", today.name]
                                                        delegate:nil
                                               cancelButtonTitle:@"Sweatpants!"

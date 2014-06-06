@@ -225,6 +225,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="button" destination="a5k-6o-0Wb" id="hGv-F9-kbR"/>
+                        <outlet property="dayPicker" destination="0hs-bq-OCs" id="Xb7-QH-fkG"/>
                         <outlet property="repsLabel" destination="AxT-0L-6V6" id="Yhm-5h-Qof"/>
                         <outlet property="setsLabel" destination="8nw-jD-SCd" id="RmI-5z-lXR"/>
                     </connections>

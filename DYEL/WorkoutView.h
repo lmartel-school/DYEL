@@ -15,4 +15,7 @@
 @property (nonatomic, strong) Routine *routine;
 @property (nonatomic, strong) Workout *workout;
 
+@property (nonatomic, weak) id <UICollectionViewDelegate> delegate;
+@property (nonatomic, weak) id <UICollectionViewDataSource> dataSource;
+
 @end

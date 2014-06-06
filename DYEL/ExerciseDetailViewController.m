@@ -45,16 +45,11 @@
     ExerciseAddViewController *dest = [segue destinationViewController];
     __weak ExerciseDetailViewController *weakself = self;
     dest.callback = ^void(ExerciseAddViewController *modal){
-        Routine *routine = [NSEntityDescription insertNewObjectForEntityForName:@"Routine"
-                                                         inManagedObjectContext:[CoreData context]];
-        routine.exercise = weakself.exercise;
-        routine.day = [Day dayWithName:modal.dayName inManagedObjectContext:[CoreData context]];
-        routine.sets = [NSNumber numberWithInt:modal.sets];
-        routine.reps = [NSNumber numberWithInt:modal.reps];
-        routine.position = [NSNumber numberWithUnsignedInteger:[[CoreData context] countForFetchRequest:[Routine fetchRequestForDay:routine.day] error:nil]];
-        
-        
-        [self.tabBarController setSelectedIndex:1];
+        [Routine createRoutineWithExercise:weakself.exercise
+                                       day:[Day dayWithName:modal.dayName inManagedObjectContext:[CoreData context]]
+                                      sets:modal.sets
+                                      reps:modal.reps];
+        [self.tabBarController setSelectedIndex:self.tabBarController.viewControllers.count - 1];
         [self dismissViewControllerAnimated:YES completion:^{
             [self.navigationController popViewControllerAnimated:YES];
         }];

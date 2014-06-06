@@ -29,11 +29,7 @@
             day = [NSEntityDescription insertNewObjectForEntityForName:@"Day"
                                                      inManagedObjectContext:context];
             day.name = name;
-            day.index = [NSNumber numberWithUnsignedInteger:
-                         [[CoreData context]
-                            countForFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Day"]
-                            error:nil] - 1
-                         ];
+            day.index = [NSNumber numberWithUnsignedInteger:[[CoreData dayNames] indexOfObject:name]];
         } else {
             day = [matches lastObject];
         }

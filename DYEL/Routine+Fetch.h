@@ -8,9 +8,12 @@
 
 #import "Routine.h"
 
-@interface Routine (Fetch)
+@interface Routine (Create)
 
++ (Routine *)createRoutineWithExercise:(Exercise *)exercise day:(Day *)day sets:(int)sets reps:(int)reps;
 + (NSFetchRequest *)fetchRequestForDay:(Day *)day;
 + (NSFetchRequest *)fetchRequest;
+
+- (NSNumber *)suggestWeight;
 
 @end

@@ -17,8 +17,11 @@
         <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="gym" inverseEntity="Workout" syncable="YES"/>
     </entity>
     <entity name="Lift" representedClassName="Lift" syncable="YES">
-        <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="position" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="reps" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="lifts" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="routine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Routine" inverseName="lifts" inverseEntity="Routine" syncable="YES"/>
         <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="lifts" inverseEntity="Workout" syncable="YES"/>
     </entity>
     <entity name="Routine" representedClassName="Routine" syncable="YES">
@@ -27,6 +30,7 @@
         <attribute name="sets" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="day" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="routines" inverseEntity="Day" syncable="YES"/>
         <relationship name="exercise" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="routines" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="lifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lift" inverseName="routine" inverseEntity="Lift" syncable="YES"/>
     </entity>
     <entity name="Workout" representedClassName="Workout" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -36,9 +40,9 @@
     <elements>
         <element name="Day" positionX="-128" positionY="-36" width="128" height="88"/>
         <element name="Exercise" positionX="-351" positionY="-36" width="128" height="88"/>
-        <element name="Routine" positionX="-83" positionY="134" width="128" height="118"/>
-        <element name="Workout" positionX="-335" positionY="144" width="128" height="88"/>
-        <element name="Gym" positionX="-326" positionY="347" width="128" height="103"/>
-        <element name="Lift" positionX="-558" positionY="144" width="128" height="88"/>
+        <element name="Gym" positionX="187" positionY="167" width="128" height="103"/>
+        <element name="Lift" positionX="-324" positionY="122" width="128" height="135"/>
+        <element name="Routine" positionX="-126" positionY="-286" width="128" height="133"/>
+        <element name="Workout" positionX="-20" positionY="173" width="128" height="88"/>
     </elements>
 </model>

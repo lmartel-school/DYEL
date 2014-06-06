@@ -12,8 +12,10 @@
 #import "WorkoutView.h"
 #import "Routine+Fetch.h"
 #import "Day+Create.h"
+#import "LiftCollectionView.h"
+#import "LiftCollectionViewCell.h"
 
-@interface WorkoutViewController () <UIScrollViewDelegate>
+@interface WorkoutViewController () <UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) NSArray *routines;
@@ -25,7 +27,7 @@
 
 @end
 
-// I read a ScrollView tutorial at http://www.raywenderlich.com/10518/how-to-use-uiscrollview-to-scroll-and-zoom-content
+
 @implementation WorkoutViewController
 
 - (void)setGym:(Gym *)gym
@@ -34,14 +36,10 @@
     self.routines = [[CoreData context] executeFetchRequest:[Routine fetchRequestForDay:[Day today]]
                                                       error:nil
                      ];
-    NSLog(@"%@", self.routines);
-    NSLog(@"%@", self.workout);
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
+#pragma mark Scrolling
+// I read a ScrollView tutorial at http://www.raywenderlich.com/10518/how-to-use-uiscrollview-to-scroll-and-zoom-content
 
 - (void)updateCurrentPage
 {
@@ -68,10 +66,14 @@
         frame.origin = CGPointMake(frame.size.width * i, 0.0f);
         
         WorkoutView *newView = [[NSBundle mainBundle] loadNibNamed:@"WorkoutView" owner:self options:nil][0];
+        newView.delegate = self;
+        newView.dataSource = self;
+        
         newView.workout = self.workout;
         newView.routine = self.routines[i];
         newView.frame = frame;
         newView.backgroundColor = [CoreData detailColor];
+        
         self.pageViews[i] = newView;
         [self.scrollView addSubview:newView];
     }
@@ -94,6 +96,29 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self updateCurrentPage];
+}
+
+#pragma mark CollectionViews
+
+- (NSInteger)numberOfSectionsInCollectionView:(LiftCollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(LiftCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return collectionView.workout.lifts.count;
+}
+
+- (UICollectionViewCell *)collectionView:(LiftCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    LiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Lift Cell"
+                                                                           forIndexPath:indexPath];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"position = %d", (int)indexPath.row];
+    cell.lift = [[collectionView.workout.lifts filteredSetUsingPredicate:predicate] anyObject];
+
+    return cell;
 }
 
 

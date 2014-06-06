@@ -8,13 +8,17 @@
 
 #import "Lift.h"
 #import "Exercise.h"
+#import "Routine.h"
 #import "Workout.h"
 
 
 @implementation Lift
 
+@dynamic position;
 @dynamic reps;
-@dynamic workout;
+@dynamic weight;
 @dynamic exercise;
+@dynamic routine;
+@dynamic workout;
 
 @end

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B364F18F19417E97007E1C5F /* Gym.m in Sources */ = {isa = PBXBuildFile; fileRef = B364F18E19417E97007E1C5F /* Gym.m */; };
+		B364F19519417E98007E1C5F /* Routine.m in Sources */ = {isa = PBXBuildFile; fileRef = B364F19419417E98007E1C5F /* Routine.m */; };
+		B364F19819417E98007E1C5F /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = B364F19719417E98007E1C5F /* Workout.m */; };
+		B364F19B19417E98007E1C5F /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = B364F19A19417E98007E1C5F /* Day.m */; };
+		B364F19E19417E98007E1C5F /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B364F19D19417E98007E1C5F /* Exercise.m */; };
+		B364F1A419418391007E1C5F /* LiftCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B364F1A319418391007E1C5F /* LiftCollectionView.m */; };
+		B364F1A7194187D3007E1C5F /* LiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B364F1A6194187D3007E1C5F /* LiftCollectionViewCell.m */; };
+		B364F1AC194190D4007E1C5F /* LiftCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B364F1AB194190D4007E1C5F /* LiftCollectionViewCell.xib */; };
 		B3AC250D193FE86C00C865E6 /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC250C193FE86C00C865E6 /* CheckinViewController.m */; };
 		B3AC250F193FE93600C865E6 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AC250E193FE93600C865E6 /* GLKit.framework */; };
 		B3AC2511193FE96600C865E6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AC2510193FE96600C865E6 /* MapKit.framework */; };
@@ -16,12 +24,6 @@
 		B3AC2523193FEF4600C865E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AC2522193FEF4600C865E6 /* CoreLocation.framework */; };
 		B3AC252C194024FC00C865E6 /* Gym+MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC252B194024FC00C865E6 /* Gym+MapAnnotation.m */; };
 		B3AC25321940495D00C865E6 /* Workout+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC25311940495D00C865E6 /* Workout+Create.m */; };
-		B3AC2535194056B700C865E6 /* Lift.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2534194056B700C865E6 /* Lift.m */; };
-		B3AC2538194056B800C865E6 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2537194056B800C865E6 /* Workout.m */; };
-		B3AC253B194056B800C865E6 /* Gym.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC253A194056B800C865E6 /* Gym.m */; };
-		B3AC253E194056B800C865E6 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC253D194056B800C865E6 /* Day.m */; };
-		B3AC2541194056B800C865E6 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2540194056B800C865E6 /* Exercise.m */; };
-		B3AC2544194056B800C865E6 /* Routine.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2543194056B800C865E6 /* Routine.m */; };
 		B3AC254719405EF500C865E6 /* WorkoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC254619405EF500C865E6 /* WorkoutView.m */; };
 		B3AC254B194099A100C865E6 /* WorkoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AC254A194099A100C865E6 /* WorkoutView.xib */; };
 		B3BACEE5193AD18100AA8E77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BACEE4193AD18100AA8E77 /* Foundation.framework */; };
@@ -47,6 +49,8 @@
 		B3BACF4F193B0F1500AA8E77 /* Day+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF4E193B0F1500AA8E77 /* Day+Create.m */; };
 		B3BACF5B193B369000AA8E77 /* RoutineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF5A193B369000AA8E77 /* RoutineTableViewController.m */; };
 		B3BACF61193B3FE400AA8E77 /* Routine+Fetch.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */; };
+		B3EF33B919419C8C00DEC23F /* Lift.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33B819419C8C00DEC23F /* Lift.m */; };
+		B3EF33BC1941F00600DEC23F /* Lift+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33BB1941F00600DEC23F /* Lift+Create.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B364F18D19417E97007E1C5F /* Gym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gym.h; sourceTree = "<group>"; };
+		B364F18E19417E97007E1C5F /* Gym.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gym.m; sourceTree = "<group>"; };
+		B364F19319417E98007E1C5F /* Routine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routine.h; sourceTree = "<group>"; };
+		B364F19419417E98007E1C5F /* Routine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routine.m; sourceTree = "<group>"; };
+		B364F19619417E98007E1C5F /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
+		B364F19719417E98007E1C5F /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
+		B364F19919417E98007E1C5F /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
+		B364F19A19417E98007E1C5F /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
+		B364F19C19417E98007E1C5F /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		B364F19D19417E98007E1C5F /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		B364F1A219418391007E1C5F /* LiftCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiftCollectionView.h; sourceTree = "<group>"; };
+		B364F1A319418391007E1C5F /* LiftCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftCollectionView.m; sourceTree = "<group>"; };
+		B364F1A5194187D3007E1C5F /* LiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiftCollectionViewCell.h; sourceTree = "<group>"; };
+		B364F1A6194187D3007E1C5F /* LiftCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftCollectionViewCell.m; sourceTree = "<group>"; };
+		B364F1AB194190D4007E1C5F /* LiftCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftCollectionViewCell.xib; sourceTree = "<group>"; };
 		B3AC250B193FE86B00C865E6 /* CheckinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinViewController.h; sourceTree = "<group>"; };
 		B3AC250C193FE86C00C865E6 /* CheckinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinViewController.m; sourceTree = "<group>"; };
 		B3AC250E193FE93600C865E6 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -74,18 +93,6 @@
 		B3AC252B194024FC00C865E6 /* Gym+MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Gym+MapAnnotation.m"; sourceTree = "<group>"; };
 		B3AC25301940495D00C865E6 /* Workout+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Workout+Create.h"; sourceTree = "<group>"; };
 		B3AC25311940495D00C865E6 /* Workout+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Workout+Create.m"; sourceTree = "<group>"; };
-		B3AC2533194056B700C865E6 /* Lift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lift.h; sourceTree = "<group>"; };
-		B3AC2534194056B700C865E6 /* Lift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lift.m; sourceTree = "<group>"; };
-		B3AC2536194056B800C865E6 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
-		B3AC2537194056B800C865E6 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
-		B3AC2539194056B800C865E6 /* Gym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gym.h; sourceTree = "<group>"; };
-		B3AC253A194056B800C865E6 /* Gym.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gym.m; sourceTree = "<group>"; };
-		B3AC253C194056B800C865E6 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
-		B3AC253D194056B800C865E6 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
-		B3AC253F194056B800C865E6 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
-		B3AC2540194056B800C865E6 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
-		B3AC2542194056B800C865E6 /* Routine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routine.h; sourceTree = "<group>"; };
-		B3AC2543194056B800C865E6 /* Routine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routine.m; sourceTree = "<group>"; };
 		B3AC254519405EF500C865E6 /* WorkoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutView.h; sourceTree = "<group>"; };
 		B3AC254619405EF500C865E6 /* WorkoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutView.m; sourceTree = "<group>"; };
 		B3AC254A194099A100C865E6 /* WorkoutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutView.xib; sourceTree = "<group>"; };
@@ -125,6 +132,10 @@
 		B3BACF5A193B369000AA8E77 /* RoutineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutineTableViewController.m; sourceTree = "<group>"; };
 		B3BACF5F193B3FE400AA8E77 /* Routine+Fetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Routine+Fetch.h"; sourceTree = "<group>"; };
 		B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Routine+Fetch.m"; sourceTree = "<group>"; };
+		B3EF33B719419C8C00DEC23F /* Lift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lift.h; sourceTree = "<group>"; };
+		B3EF33B819419C8C00DEC23F /* Lift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lift.m; sourceTree = "<group>"; };
+		B3EF33BA1941F00600DEC23F /* Lift+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Lift+Create.h"; sourceTree = "<group>"; };
+		B3EF33BB1941F00600DEC23F /* Lift+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Lift+Create.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,19 +280,19 @@
 		B3BACF24193AD7A400AA8E77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B364F18D19417E97007E1C5F /* Gym.h */,
+				B364F19C19417E98007E1C5F /* Exercise.h */,
+				B364F19D19417E98007E1C5F /* Exercise.m */,
+				B364F19919417E98007E1C5F /* Day.h */,
+				B364F19A19417E98007E1C5F /* Day.m */,
+				B364F19619417E98007E1C5F /* Workout.h */,
+				B364F19719417E98007E1C5F /* Workout.m */,
+				B364F19319417E98007E1C5F /* Routine.h */,
+				B364F19419417E98007E1C5F /* Routine.m */,
+				B364F18E19417E97007E1C5F /* Gym.m */,
+				B3EF33B719419C8C00DEC23F /* Lift.h */,
+				B3EF33B819419C8C00DEC23F /* Lift.m */,
 				B3BACF25193AD7B800AA8E77 /* Model.xcdatamodeld */,
-				B3AC2539194056B800C865E6 /* Gym.h */,
-				B3AC253A194056B800C865E6 /* Gym.m */,
-				B3AC2542194056B800C865E6 /* Routine.h */,
-				B3AC2543194056B800C865E6 /* Routine.m */,
-				B3AC253F194056B800C865E6 /* Exercise.h */,
-				B3AC2540194056B800C865E6 /* Exercise.m */,
-				B3AC253C194056B800C865E6 /* Day.h */,
-				B3AC253D194056B800C865E6 /* Day.m */,
-				B3AC2536194056B800C865E6 /* Workout.h */,
-				B3AC2537194056B800C865E6 /* Workout.m */,
-				B3AC2533194056B700C865E6 /* Lift.h */,
-				B3AC2534194056B700C865E6 /* Lift.m */,
 				B3BACF4D193B0F1500AA8E77 /* Day+Create.h */,
 				B3BACF4E193B0F1500AA8E77 /* Day+Create.m */,
 				B3BACF30193ADA8500AA8E77 /* Exercise+Create.h */,
@@ -292,6 +303,8 @@
 				B3AC252B194024FC00C865E6 /* Gym+MapAnnotation.m */,
 				B3AC25301940495D00C865E6 /* Workout+Create.h */,
 				B3AC25311940495D00C865E6 /* Workout+Create.m */,
+				B3EF33BA1941F00600DEC23F /* Lift+Create.h */,
+				B3EF33BB1941F00600DEC23F /* Lift+Create.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -311,6 +324,11 @@
 				B3AC254519405EF500C865E6 /* WorkoutView.h */,
 				B3AC254619405EF500C865E6 /* WorkoutView.m */,
 				B3AC254A194099A100C865E6 /* WorkoutView.xib */,
+				B364F1A219418391007E1C5F /* LiftCollectionView.h */,
+				B364F1A319418391007E1C5F /* LiftCollectionView.m */,
+				B364F1A5194187D3007E1C5F /* LiftCollectionViewCell.h */,
+				B364F1A6194187D3007E1C5F /* LiftCollectionViewCell.m */,
+				B364F1AB194190D4007E1C5F /* LiftCollectionViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -413,6 +431,7 @@
 				B3BACF46193AF98000AA8E77 /* Images.xcassets in Resources */,
 				B3BACEEF193AD18100AA8E77 /* InfoPlist.strings in Resources */,
 				B3BACEF8193AD18100AA8E77 /* Main.storyboard in Resources */,
+				B364F1AC194190D4007E1C5F /* LiftCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,27 +452,30 @@
 			files = (
 				B3AC250D193FE86C00C865E6 /* CheckinViewController.m in Sources */,
 				B3BACF35193AE9AD00AA8E77 /* ExerciseDetailViewController.m in Sources */,
+				B3EF33BC1941F00600DEC23F /* Lift+Create.m in Sources */,
+				B364F1A7194187D3007E1C5F /* LiftCollectionViewCell.m in Sources */,
 				B3BACEF5193AD18100AA8E77 /* DYELAppDelegate.m in Sources */,
 				B3BACEF1193AD18100AA8E77 /* main.m in Sources */,
 				B3BACF61193B3FE400AA8E77 /* Routine+Fetch.m in Sources */,
-				B3AC2544194056B800C865E6 /* Routine.m in Sources */,
+				B364F1A419418391007E1C5F /* LiftCollectionView.m in Sources */,
+				B364F19519417E98007E1C5F /* Routine.m in Sources */,
 				B3BACF5B193B369000AA8E77 /* RoutineTableViewController.m in Sources */,
 				B3BACF23193AD4DE00AA8E77 /* CoreData.m in Sources */,
-				B3AC2538194056B800C865E6 /* Workout.m in Sources */,
 				B3AC2521193FEE9D00C865E6 /* WorkoutViewController.m in Sources */,
+				B364F19819417E98007E1C5F /* Workout.m in Sources */,
 				B3BACF27193AD7B800AA8E77 /* Model.xcdatamodeld in Sources */,
 				B3BACF49193B0D8C00AA8E77 /* ExerciseAddViewController.m in Sources */,
 				B3AC25321940495D00C865E6 /* Workout+Create.m in Sources */,
 				B3AC252C194024FC00C865E6 /* Gym+MapAnnotation.m in Sources */,
 				B3AC254719405EF500C865E6 /* WorkoutView.m in Sources */,
-				B3AC2541194056B800C865E6 /* Exercise.m in Sources */,
-				B3AC253E194056B800C865E6 /* Day.m in Sources */,
+				B364F19E19417E98007E1C5F /* Exercise.m in Sources */,
+				B364F19B19417E98007E1C5F /* Day.m in Sources */,
 				B3BACF1C193AD3C800AA8E77 /* ExerciseTableViewController.m in Sources */,
-				B3AC2535194056B700C865E6 /* Lift.m in Sources */,
+				B3EF33B919419C8C00DEC23F /* Lift.m in Sources */,
 				B3BACF32193ADA8500AA8E77 /* Exercise+Create.m in Sources */,
 				B3BACF4F193B0F1500AA8E77 /* Day+Create.m in Sources */,
 				B3BACF1F193AD3FE00AA8E77 /* CoreDataTableViewController.m in Sources */,
-				B3AC253B194056B800C865E6 /* Gym.m in Sources */,
+				B364F18F19417E97007E1C5F /* Gym.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

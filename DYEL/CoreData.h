@@ -10,8 +10,14 @@
 
 @interface CoreData : NSObject
 
+// Flags to empty database and reseed
++ (BOOL)EMPTY_DB;
++ (BOOL)RESEED_AFTER_EMPTY;
+
 + (UIColor *)detailColor;
 + (NSArray *)dayNames;
++ (NSDate *)stripTimeFromDate:(NSDate *)date;
+
 + (void)createContextWithCompletionHandler:(void (^)(BOOL success))completionHandler;
 + (NSManagedObjectContext *)context;
 

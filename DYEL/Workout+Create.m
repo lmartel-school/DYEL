@@ -7,6 +7,7 @@
 //
 
 #import "Workout+Create.h"
+#import "CoreData.h"
 
 @implementation Workout (Create)
 
@@ -17,10 +18,7 @@
     Workout *workout = nil;
     
     // Strip hours/minutes/seconds from date
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [gregorianCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
-                                                         fromDate:date];
-    date = [gregorianCalendar dateFromComponents:components];
+    date = [CoreData stripTimeFromDate:date];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Workout"];
     request.predicate = [NSPredicate predicateWithFormat:@"gym = %@ AND date = %@", gym, date];

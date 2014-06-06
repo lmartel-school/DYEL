@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Exercise, Workout;
+@class Exercise, Routine, Workout;
 
 @interface Lift : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * position;
 @property (nonatomic, retain) NSNumber * reps;
-@property (nonatomic, retain) Workout *workout;
+@property (nonatomic, retain) NSNumber * weight;
 @property (nonatomic, retain) Exercise *exercise;
+@property (nonatomic, retain) Routine *routine;
+@property (nonatomic, retain) Workout *workout;
 
 @end

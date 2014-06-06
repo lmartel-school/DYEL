@@ -9,6 +9,7 @@
 #import "Routine.h"
 #import "Day.h"
 #import "Exercise.h"
+#import "Lift.h"
 
 
 @implementation Routine
@@ -18,5 +19,6 @@
 @dynamic sets;
 @dynamic day;
 @dynamic exercise;
+@dynamic lifts;
 
 @end
