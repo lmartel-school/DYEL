@@ -364,7 +364,7 @@
 				ORGANIZATIONNAME = leopmartel;
 				TargetAttributes = {
 					B3BACEE0193AD18100AA8E77 = {
-						DevelopmentTeam = FUTU96J3U9;
+						DevelopmentTeam = X29D77ZDJ5;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -584,7 +584,7 @@
 				GCC_PREFIX_HEADER = "DYEL/DYEL-Prefix.pch";
 				INFOPLIST_FILE = "DYEL/DYEL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67CAF49E-348F-4D62-B8F2-9488EF1C45AD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -600,7 +600,7 @@
 				GCC_PREFIX_HEADER = "DYEL/DYEL-Prefix.pch";
 				INFOPLIST_FILE = "DYEL/DYEL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67CAF49E-348F-4D62-B8F2-9488EF1C45AD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
