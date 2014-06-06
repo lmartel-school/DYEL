@@ -21,6 +21,10 @@
 
 @end
 
+@protocol hasDate <NSObject>
+- (NSDate *)date;
+@end
+
 @implementation CoreData
 
 // Public API
@@ -46,6 +50,19 @@
     NSDateComponents *components = [gregorianCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
                                                         fromDate:date];
     return [gregorianCalendar dateFromComponents:components];
+}
+
++ (NSArray *)filterArray:(NSArray *)array byDate:(NSDate *)date withLeftovers:(NSMutableArray *)leftovers
+{
+    NSMutableArray *match = [[NSMutableArray alloc] init];
+    for(id<hasDate> thing in array){
+        if([date compare:thing.date] == NSOrderedSame){
+            [match addObject:thing];
+        } else {
+            [leftovers addObject:thing];
+        }
+    }
+    return match;
 }
 
 + (void)createContextWithCompletionHandler:(void (^)(BOOL success))completionHandler

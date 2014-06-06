@@ -12,6 +12,7 @@
 #import "WorkoutView.h"
 #import "Routine+Fetch.h"
 #import "Day+Create.h"
+#import "Lift+Create.h"
 #import "LiftCollectionView.h"
 #import "LiftCollectionViewCell.h"
 
@@ -109,7 +110,7 @@
 
 - (NSInteger)collectionView:(LiftCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return collectionView.workout.lifts.count;
+    return [Lift liftsForRoutine:collectionView.routine inWorkout:collectionView.workout].count;
 }
 
 - (UICollectionViewCell *)collectionView:(LiftCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -117,8 +118,7 @@
     LiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Lift Cell"
                                                                            forIndexPath:indexPath];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"position = %d", (int)indexPath.row];
-    cell.lift = [[collectionView.workout.lifts filteredSetUsingPredicate:predicate] anyObject];
+    cell.lift = [Lift liftsForRoutine:collectionView.routine inWorkout:collectionView.workout][indexPath.row];
 
     return cell;
 }

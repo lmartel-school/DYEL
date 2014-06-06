@@ -75,32 +75,27 @@
                       ];
     
     NSFetchRequest *weightNow = [NSFetchRequest fetchRequestWithEntityName:@"Lift"];
-    weightNow.predicate = [NSPredicate predicateWithFormat:@"exercise = %@ AND reps = %@ AND workout.date = %@", self.exercise, self.reps, today];
+    weightNow.predicate = [NSPredicate predicateWithFormat:@"exercise = %@ AND reps = %@", self.exercise, self.reps];
     weightNow.sortDescriptors = desc;
     weightNow.fetchLimit = 1;
     
     NSError *error;
-    NSArray *matches = [[CoreData context] executeFetchRequest:weightNow error:&error];
+    NSMutableArray *pastMatches = [[NSMutableArray alloc] init];
+    NSArray *todayMatches = [CoreData filterArray:[[CoreData context] executeFetchRequest:weightNow error:&error] byDate:today withLeftovers:pastMatches];
     
-    if (error || !matches) {
+    if (error || !todayMatches) {
         NSLog(@"[Error] Routine+Fetch.h suggestWeight");
-    } else if ([matches count]) {
-        Lift *last = matches[0];
+    } else if ([todayMatches count]) {
+        Lift *last = todayMatches[0];
         return last.weight;
     }
 
     // Then, we look at the last workout and increment the weight
-    NSFetchRequest *weightLast = [NSFetchRequest fetchRequestWithEntityName:@"Lift"];
-    weightLast.predicate = [NSPredicate predicateWithFormat:@"exercise = %@ AND reps = %@ AND workout.date != %@", self.exercise, self.reps, today];
-    weightLast.sortDescriptors = desc;
-    weightLast.fetchLimit = 1;
-
-    matches = [[CoreData context] executeFetchRequest:weightLast error:&error];
     
-    if (error || !matches) {
+    if (error || !pastMatches) {
         NSLog(@"[Error] Routine+Fetch.h");
-    } else if ([matches count]) {
-        Lift *last = matches[0];
+    } else if ([pastMatches count]) {
+        Lift *last = pastMatches[0];
         int increment;
         if([last.exercise.name isEqualToString:@"Deadlift"]){
             increment = 10.0;

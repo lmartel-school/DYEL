@@ -17,6 +17,7 @@
 + (UIColor *)detailColor;
 + (NSArray *)dayNames;
 + (NSDate *)stripTimeFromDate:(NSDate *)date;
++ (NSArray *)filterArray:(NSArray *)array byDate:(NSDate *)date withLeftovers:(NSMutableArray *)leftovers;
 
 + (void)createContextWithCompletionHandler:(void (^)(BOOL success))completionHandler;
 + (NSManagedObjectContext *)context;

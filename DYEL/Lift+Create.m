@@ -10,8 +10,14 @@
 #import "CoreData.h"
 #import "Workout.h"
 #import "Routine.h"
+#import "Exercise.h"
 
 @implementation Lift (Create)
+
+- (NSDate *)date
+{
+    return self.workout.date;
+}
 
 + (Lift *)createLiftWithRoutine:(Routine *)routine workout:(Workout *)workout reps:(int)reps weight:(double)weight
 {
@@ -21,12 +27,42 @@
     lift.weight = [NSNumber numberWithDouble:weight];
     lift.workout = workout;
     lift.routine = routine;
-    lift.position = [NSNumber numberWithUnsignedInteger:routine.lifts.count - 1];
-    
     // routines can be deleted, so we track our own reference to the exercise
     lift.exercise = routine.exercise;
 
+    lift.position = [NSNumber numberWithUnsignedInt:[self liftsForRoutine:routine inWorkout:workout].count - 1];
+
     return lift;
+}
+
++ (NSArray *)liftsForRoutine:(Routine *)routine inWorkout:(Workout *)workout
+{
+//    return [self fetchWithPredicate:[NSPredicate predicateWithFormat:@"workout = %@", workout]];
+    
+//    NSMutableSet *set = [NSMutableSet setWithSet:routine.lifts];
+//    [set intersectSet:workout.lifts];
+//    return [set allObjects];
+    return [self fetchWithPredicate:[NSPredicate predicateWithFormat:@"workout = %@ AND routine = %@", workout, routine]];
+}
+
++ (NSArray *)liftsForExercise:(Exercise *)exercise inWorkout:(Workout *)workout
+{
+//    return [self fetchWithPredicate:nil];
+//    
+//    NSMutableSet *set = [NSMutableSet setWithSet:exercise.lifts];
+//    [set intersectSet:workout.lifts];
+//    return [set allObjects];
+    return [self fetchWithPredicate:[NSPredicate predicateWithFormat:@"workout = %@ AND exercise = %@", workout, exercise]];
+}
+
++ (NSArray *)fetchWithPredicate:(NSPredicate *)predicate
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Lift"];
+    request.predicate = predicate;
+    request.sortDescriptors = @[
+                                [NSSortDescriptor sortDescriptorWithKey:@"position" ascending:YES]
+                                ];
+    return [[CoreData context] executeFetchRequest:request error:nil];
 }
 
 @end

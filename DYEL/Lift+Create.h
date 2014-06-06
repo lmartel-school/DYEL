@@ -10,6 +10,10 @@
 
 @interface Lift (Create)
 
+- (NSDate *)date;
+
++ (NSArray *)liftsForRoutine:(Routine *)routine inWorkout:(Workout *)workout;
++ (NSArray *)liftsForExercise:(Exercise *)exercise inWorkout:(Workout *)workout;
 + (Lift *)createLiftWithRoutine:(Routine *)routine workout:(Workout *)workout reps:(int)reps weight:(double)weight;
 
 @end

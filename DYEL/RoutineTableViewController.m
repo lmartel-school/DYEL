@@ -42,6 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[CoreData context] save:nil];
     [self.tableView setEditing:YES animated:animated];
     self.tableView.allowsSelectionDuringEditing = YES;
 }

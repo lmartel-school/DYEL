@@ -21,13 +21,16 @@
     date = [CoreData stripTimeFromDate:date];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Workout"];
-    request.predicate = [NSPredicate predicateWithFormat:@"gym = %@ AND date = %@", gym, date];
+    request.predicate = nil;
         
     NSError *error;
+    
+   
     NSArray *matches = [context executeFetchRequest:request error:&error];
+    matches = [CoreData filterArray:matches byDate:date withLeftovers:nil];
         
     if (error || !matches || ([matches count] > 1)) {
-        NSLog(@"[Error] Workout+Create.h");
+        NSLog(@"[Error] Workout+Create.m");
     } else if (![matches count]) {
         workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout"
                                                  inManagedObjectContext:context];

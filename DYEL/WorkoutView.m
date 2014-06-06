@@ -70,6 +70,7 @@
 - (void)setRoutine:(Routine *)routine
 {
     _routine = routine;
+    self.liftCollectionView.routine = routine;
     
     self.headerLabel.text = [NSString stringWithFormat:@"%@ %@x%@", routine.exercise.name, routine.sets, routine.reps];
     [self updateProgressAnimated:NO];
@@ -89,7 +90,7 @@
 
 - (void)updateProgressAnimated:(BOOL)animate
 {
-    double progress = self.routine.lifts.count / [self.routine.sets doubleValue];
+    double progress = [Lift liftsForRoutine:self.routine inWorkout:self.workout].count / [self.routine.sets doubleValue];
     [self.progress setProgress:progress
                       animated:animate];
 }
