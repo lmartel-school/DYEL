@@ -51,6 +51,9 @@
 		B3BACF61193B3FE400AA8E77 /* Routine+Fetch.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BACF60193B3FE400AA8E77 /* Routine+Fetch.m */; };
 		B3EF33B919419C8C00DEC23F /* Lift.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33B819419C8C00DEC23F /* Lift.m */; };
 		B3EF33BC1941F00600DEC23F /* Lift+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33BB1941F00600DEC23F /* Lift+Create.m */; };
+		B3EF33BF194205CF00DEC23F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33BE194205CF00DEC23F /* HistoryViewController.m */; };
+		B3EF33C219420B7300DEC23F /* DYELTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33C119420B7300DEC23F /* DYELTabBarViewController.m */; };
+		B3EF33C519420F2200DEC23F /* PortraitOnlyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33C419420F2200DEC23F /* PortraitOnlyNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +139,12 @@
 		B3EF33B819419C8C00DEC23F /* Lift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lift.m; sourceTree = "<group>"; };
 		B3EF33BA1941F00600DEC23F /* Lift+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Lift+Create.h"; sourceTree = "<group>"; };
 		B3EF33BB1941F00600DEC23F /* Lift+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Lift+Create.m"; sourceTree = "<group>"; };
+		B3EF33BD194205CF00DEC23F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		B3EF33BE194205CF00DEC23F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		B3EF33C019420B7300DEC23F /* DYELTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYELTabBarViewController.h; sourceTree = "<group>"; };
+		B3EF33C119420B7300DEC23F /* DYELTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYELTabBarViewController.m; sourceTree = "<group>"; };
+		B3EF33C319420F2200DEC23F /* PortraitOnlyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitOnlyNavigationController.h; sourceTree = "<group>"; };
+		B3EF33C419420F2200DEC23F /* PortraitOnlyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitOnlyNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +273,12 @@
 				B3AC250C193FE86C00C865E6 /* CheckinViewController.m */,
 				B3AC251F193FEE9D00C865E6 /* WorkoutViewController.h */,
 				B3AC2520193FEE9D00C865E6 /* WorkoutViewController.m */,
+				B3EF33BD194205CF00DEC23F /* HistoryViewController.h */,
+				B3EF33BE194205CF00DEC23F /* HistoryViewController.m */,
+				B3EF33C019420B7300DEC23F /* DYELTabBarViewController.h */,
+				B3EF33C119420B7300DEC23F /* DYELTabBarViewController.m */,
+				B3EF33C319420F2200DEC23F /* PortraitOnlyNavigationController.h */,
+				B3EF33C419420F2200DEC23F /* PortraitOnlyNavigationController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -452,6 +467,7 @@
 			files = (
 				B3AC250D193FE86C00C865E6 /* CheckinViewController.m in Sources */,
 				B3BACF35193AE9AD00AA8E77 /* ExerciseDetailViewController.m in Sources */,
+				B3EF33BF194205CF00DEC23F /* HistoryViewController.m in Sources */,
 				B3EF33BC1941F00600DEC23F /* Lift+Create.m in Sources */,
 				B364F1A7194187D3007E1C5F /* LiftCollectionViewCell.m in Sources */,
 				B3BACEF5193AD18100AA8E77 /* DYELAppDelegate.m in Sources */,
@@ -460,6 +476,7 @@
 				B364F1A419418391007E1C5F /* LiftCollectionView.m in Sources */,
 				B364F19519417E98007E1C5F /* Routine.m in Sources */,
 				B3BACF5B193B369000AA8E77 /* RoutineTableViewController.m in Sources */,
+				B3EF33C519420F2200DEC23F /* PortraitOnlyNavigationController.m in Sources */,
 				B3BACF23193AD4DE00AA8E77 /* CoreData.m in Sources */,
 				B3AC2521193FEE9D00C865E6 /* WorkoutViewController.m in Sources */,
 				B364F19819417E98007E1C5F /* Workout.m in Sources */,
@@ -467,6 +484,7 @@
 				B3BACF49193B0D8C00AA8E77 /* ExerciseAddViewController.m in Sources */,
 				B3AC25321940495D00C865E6 /* Workout+Create.m in Sources */,
 				B3AC252C194024FC00C865E6 /* Gym+MapAnnotation.m in Sources */,
+				B3EF33C219420B7300DEC23F /* DYELTabBarViewController.m in Sources */,
 				B3AC254719405EF500C865E6 /* WorkoutView.m in Sources */,
 				B364F19E19417E98007E1C5F /* Exercise.m in Sources */,
 				B364F19B19417E98007E1C5F /* Day.m in Sources */,

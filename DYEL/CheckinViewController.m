@@ -136,7 +136,7 @@
     dest.gym = sender.annotation;
     self.locationManager = nil; // deallocate location manager to save battery
     
-    
+// TODO delete
 //    CLGeocoder *geo = [[CLGeocoder alloc] init];
 //    [geo reverseGeocodeLocation:self.locationManager.location completionHandler:^(NSArray *placemarks, NSError *error) {
 //        NSLog(@"[CheckinViewController prepareForSegue]");
@@ -151,8 +151,5 @@
 //        }
 //    }];
 }
-
-
-#pragma mark TabBarDelegate
 
 @end

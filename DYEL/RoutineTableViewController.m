@@ -11,6 +11,7 @@
 #import "Routine+Fetch.h"
 #import "Exercise+Create.h"
 #import "ExerciseDetailViewController.h"
+#import "HistoryViewController.h"
 
 @interface RoutineTableViewController () <UITabBarControllerDelegate>
 
@@ -42,6 +43,7 @@
 {
     [super viewWillAppear:animated];
     [self.tableView setEditing:YES animated:animated];
+    self.tableView.allowsSelectionDuringEditing = YES;
 }
 
 #pragma mark - Table view data source
@@ -132,12 +134,14 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender
 {
+    Exercise *ex = [Exercise exerciseWithName:sender.textLabel.text inManagedObjectContext:[CoreData context]];
+
     if([[segue identifier] isEqualToString:@"Selection"]){
-        // TODO
+        HistoryViewController *dest = [segue destinationViewController];
+        dest.exercise = ex;
     } else if([[segue identifier] isEqualToString:@"Accessory"]){
         ExerciseDetailViewController *dest = [segue destinationViewController];
-//        Routine *routine = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
-        dest.exercise = [Exercise exerciseWithName:sender.textLabel.text inManagedObjectContext:[CoreData context]];
+        dest.exercise = ex;
     } else {
         NSLog(@"[Error] RoutineTableViewController prepareForSegue");
     }

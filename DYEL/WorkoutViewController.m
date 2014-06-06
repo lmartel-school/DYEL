@@ -52,6 +52,8 @@
 {
     [super viewWillAppear:animated];
     
+    
+    
     CGSize navBarSize = self.navigationController.navigationBar.bounds.size;
     CGPoint origin = CGPointMake( navBarSize.width/2, navBarSize.height/2 );
     
@@ -120,6 +122,5 @@
 
     return cell;
 }
-
 
 @end

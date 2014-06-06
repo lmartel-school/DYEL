@@ -24,7 +24,6 @@
 {
     _exercise = exercise;
     self.title = exercise.name;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmX-Ui-p2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1643" y="95"/>
+            <point key="canvasLocation" x="1855" y="95"/>
         </scene>
         <!--Exercise Add View Controller - Add to Routine-->
         <scene sceneID="COi-DG-xzn">
@@ -232,12 +232,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Bw-XB-svd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2059" y="95"/>
+            <point key="canvasLocation" x="2471" y="95"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="bIW-jR-OAA">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Nzp-Ly-Lt3" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Nzp-Ly-Lt3" customClass="DYELTabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="u3p-8c-fsD">
@@ -341,10 +341,10 @@
             </objects>
             <point key="canvasLocation" x="1234" y="1515"/>
         </scene>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="3hY-JZ-m3R">
             <objects>
-                <viewController id="msg-80-89i" sceneMemberID="viewController">
+                <viewController id="msg-80-89i" customClass="HistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mv9-uT-Q6U"/>
                         <viewControllerLayoutGuide type="bottom" id="Pme-Wh-uhP"/>
@@ -358,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PMa-8Q-9bK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1643" y="1515"/>
+            <point key="canvasLocation" x="2471" y="1515"/>
         </scene>
         <!--Navigation Controller - Review-->
         <scene sceneID="6dH-pG-gBg">
@@ -379,10 +379,10 @@
             </objects>
             <point key="canvasLocation" x="820" y="1515"/>
         </scene>
-        <!--Navigation Controller - Lift-->
+        <!--Portrait Only Navigation Controller - Lift-->
         <scene sceneID="Nqq-o8-jWD">
             <objects>
-                <navigationController title="Lift" automaticallyAdjustsScrollViewInsets="NO" id="WJ9-Pb-Rz4" sceneMemberID="viewController">
+                <navigationController title="Lift" automaticallyAdjustsScrollViewInsets="NO" id="WJ9-Pb-Rz4" customClass="PortraitOnlyNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Lift" id="QCT-sB-ZDl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y2m-cW-ngZ">
@@ -461,35 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geI-Cc-e7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2059" y="816"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="MiR-iF-jUe">
-            <objects>
-                <viewController id="44k-Dx-YB2" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="mWF-k0-jw7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7z4-zD-0CS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3041" y="816"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="zIX-Np-fsq">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SU8-zl-slv" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Db-lH-oSj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="44k-Dx-YB2" kind="relationship" relationship="rootViewController" id="NOe-ze-tZ2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PXg-NB-m6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2515" y="816"/>
+            <point key="canvasLocation" x="2471" y="816"/>
         </scene>
     </scenes>
     <resources>
