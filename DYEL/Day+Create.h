@@ -14,4 +14,7 @@
 + (Day *)dayWithName:(NSString *)name
 inManagedObjectContext:(NSManagedObjectContext *)context;
 
+- (Day *)next;
+- (Day *)prev;
+
 @end

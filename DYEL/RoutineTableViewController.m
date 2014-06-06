@@ -12,6 +12,7 @@
 #import "Exercise+Create.h"
 #import "ExerciseDetailViewController.h"
 #import "HistoryViewController.h"
+#import "Day+Create.h"
 
 @interface RoutineTableViewController () <UITabBarControllerDelegate>
 
@@ -112,23 +113,21 @@
     }
 }
 
+#pragma mark - Buttons
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
+- (IBAction)expeditePressed:(UIBarButtonItem *)sender {
+    NSArray *routines = [[CoreData context] executeFetchRequest:[Routine fetchRequest] error:nil];
+    for(Routine *routine in routines){
+        routine.day = [routine.day prev];
+    }
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+- (IBAction)postponePressed:(UIBarButtonItem *)sender {
+    NSArray *routines = [[CoreData context] executeFetchRequest:[Routine fetchRequest] error:nil];
+    for(Routine *routine in routines){
+        routine.day = [routine.day next];
+    }
 }
-*/
-
 
 #pragma mark - Navigation
 

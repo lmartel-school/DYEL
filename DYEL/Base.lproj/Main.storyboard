@@ -334,7 +334,18 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="N1x-AD-OOu"/>
+                    <navigationItem key="navigationItem" id="N1x-AD-OOu">
+                        <barButtonItem key="leftBarButtonItem" title="Hurry" id="dfi-ch-AMj">
+                            <connections>
+                                <action selector="expeditePressed:" destination="uaz-uF-ppy" id="Vyn-6j-QhI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Delay" id="Nzi-mY-LhB">
+                            <connections>
+                                <action selector="postponePressed:" destination="uaz-uF-ppy" id="0P5-zT-GIN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sR-nf-ZN0" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -46,4 +46,18 @@
     return [self dayWithName:[CoreData dayNames][index] inManagedObjectContext:[CoreData context]];
 }
 
+- (Day *)next
+{
+    int i = [[CoreData dayNames] indexOfObject:self.name];
+    i = (i + 1) % 7;
+    return [Day dayWithName:[CoreData dayNames][i] inManagedObjectContext:[CoreData context]];
+}
+
+- (Day *)prev
+{
+    int i = [[CoreData dayNames] indexOfObject:self.name];
+    i = (i + 6) % 7;
+    return [Day dayWithName:[CoreData dayNames][i] inManagedObjectContext:[CoreData context]];
+}
+
 @end

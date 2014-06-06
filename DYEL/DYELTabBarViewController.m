@@ -8,7 +8,7 @@
 
 #import "DYELTabBarViewController.h"
 
-@interface DYELTabBarViewController ()
+@interface DYELTabBarViewController () <UITabBarControllerDelegate>
 @property (strong, nonatomic) NSArray *landscapeControllers;
 @property (strong, nonatomic) NSArray *allControllers;
 
@@ -18,6 +18,7 @@
 
 - (void)awakeFromNib
 {
+    self.delegate = self;
     self.allControllers = [self viewControllers];
     NSMutableArray *canRotate = [NSMutableArray arrayWithArray: self.allControllers];
     [canRotate removeObjectAtIndex: 1]; // TODO programmatically find
@@ -45,6 +46,12 @@
     } else {
         [self setViewControllers: self.allControllers];
     }
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    UINavigationController *current = self.selectedViewController;
+    [current popToRootViewControllerAnimated:NO];
 }
 
 @end
