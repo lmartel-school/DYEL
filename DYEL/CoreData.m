@@ -31,7 +31,45 @@
 
 // TODO set sensibly before submit
 + (BOOL)EMPTY_DB { return false; }
-+ (BOOL)RESEED_AFTER_EMPTY { return true; }
++ (BOOL)RESEED_IF_EMPTY { return true; }
+
++ (NSString *)LAZY { return @"lazy"; }
+
++ (void)resetNotifications
+{
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
+                                                fromDate:[NSDate date]];
+    components.hour = 23;
+    components.minute = 59;
+    components.second = 59;
+    
+// TODO remove after testing
+//    components.hour = 19;
+//    components.minute = 47;
+//    components.second = 0;
+    
+    [CoreData createContextWithCompletionHandler:^(BOOL success) {
+        NSDate *deadline = [gregorian dateFromComponents:components];
+        BOOL shouldWorkout = [[CoreData context] executeFetchRequest:[Routine fetchRequestForDay:[Day today]] error:nil].count > 0;
+        
+        // If the user worked out today (or didn't need to), postpone notification until tomorrow
+        if(!shouldWorkout || [Workout findWorkoutsOnDate:deadline].count){
+            NSDateComponents *delta = [[NSDateComponents alloc] init];
+            delta.day = 1;
+            deadline = [gregorian dateByAddingComponents:delta toDate:deadline options:0];
+        }
+        
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        UILocalNotification *notif = [[UILocalNotification alloc] init];
+        notif.fireDate = deadline;
+        notif.alertAction = @"Did you even lift?";
+        notif.alertBody = @"You missed a workout! Don't make a habit of it.";
+        notif.repeatInterval = NSDayCalendarUnit;
+        [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+    }];
+}
 
 + (UIColor *)detailColor
 {
@@ -78,7 +116,7 @@
 // Private
 
 #define FILE_NAME @"DYEL_Data"
-#define EXPECTED_CALLBACKS 2
+#define EXPECTED_CALLBACKS 3
 
 + (instancetype)instance
 {
@@ -144,32 +182,35 @@
 
 }
 
+#define SEEDED @"db_seeded"
+
 - (void)seed
 {
-    if(![CoreData EMPTY_DB]) return;
-    
     NSManagedObjectContext * context = self.managedObjectContext;
-    
-    // Delete all objects in database
-    NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator]
-                                   managedObjectModel];
-    for(NSEntityDescription *entity in model.entities){
-        NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:entity.name];
-        fetch.sortDescriptors = @[];
-        fetch.predicate = nil;
-        NSArray *all = [context executeFetchRequest:fetch error:nil];
-        for (id each in all){
-            [context deleteObject:each];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                
+    if([CoreData EMPTY_DB]){
+        // Delete all objects in database
+        NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator]
+                                       managedObjectModel];
+        for(NSEntityDescription *entity in model.entities){
+            NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:entity.name];
+            fetch.sortDescriptors = @[];
+            fetch.predicate = nil;
+            NSArray *all = [context executeFetchRequest:fetch error:nil];
+            for (id each in all){
+                [context deleteObject:each];
+            }
         }
+        
+        [context save:nil];
+        [defaults removeObjectForKey:SEEDED];
     }
     
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Couldn't save: %@", error);
-    }
     
-    if(![CoreData RESEED_AFTER_EMPTY]) return;
     
+    if(![CoreData RESEED_IF_EMPTY] || [defaults objectForKey:SEEDED]) return;
+    [defaults setObject:[NSNumber numberWithBool:YES] forKey:SEEDED];
     
     // Seed fundamental data
     Exercise *squat = [Exercise exerciseWithName:@"Squat" inManagedObjectContext:context];
@@ -243,6 +284,7 @@
     [Lift createLiftWithRoutine:r7 workout:workout reps:12 weight:0];
     
     [context save:nil];
+    
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "Routine+Fetch.h"
 #import "CoreData.h"
 #import "Day+Create.h"
+#import "RoutineTableViewController.h"
 
 @interface ExerciseDetailViewController ()
 
@@ -48,9 +49,9 @@
                                        day:[Day dayWithName:modal.dayName inManagedObjectContext:[CoreData context]]
                                       sets:modal.sets
                                       reps:modal.reps];
-        [self.tabBarController setSelectedIndex:self.tabBarController.viewControllers.count - 1];
+        UINavigationController *target = (UINavigationController *)self.tabBarController.selectedViewController;
         [self dismissViewControllerAnimated:YES completion:^{
-            [self.navigationController popViewControllerAnimated:YES];
+            [target popToRootViewControllerAnimated:YES];
         }];
     };
     

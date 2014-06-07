@@ -12,7 +12,11 @@
 
 // Flags to empty database and reseed
 + (BOOL)EMPTY_DB;
-+ (BOOL)RESEED_AFTER_EMPTY;
++ (BOOL)RESEED_IF_EMPTY;
+
++ (NSString *)LAZY;
+
++ (void)resetNotifications;
 
 + (UIColor *)detailColor;
 + (NSArray *)dayNames;

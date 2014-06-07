@@ -80,7 +80,7 @@
 }
 
 // TODO set to something sensible
-#define MAX_DISTANCE_FROM_GYM 100 // meters
+#define MAX_DISTANCE_FROM_GYM 1000 // meters
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {

@@ -38,14 +38,15 @@
         }
         
     }];
+    
+    [self.tableView setEditing:YES animated:NO];
+    self.tableView.allowsSelectionDuringEditing = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [[CoreData context] save:nil];
-    [self.tableView setEditing:YES animated:animated];
-    self.tableView.allowsSelectionDuringEditing = YES;
 }
 
 #pragma mark - Table view data source

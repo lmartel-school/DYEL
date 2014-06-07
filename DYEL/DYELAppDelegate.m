@@ -6,13 +6,26 @@
 //  Copyright (c) 2014 leopmartel. All rights reserved.
 //
 
+
 #import "DYELAppDelegate.h"
+#import "DYELTabBarViewController.h"
+#import "CoreData.h"
+#import <StoreKit/StoreKit.h>
+
+@interface DYELAppDelegate() <SKPaymentTransactionObserver>
+
+@end
+
 
 @implementation DYELAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    UILocalNotification *notif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if(notif) [self application:application reactToNotification:notif];
+    
+    [CoreData resetNotifications];
     return YES;
 }
 							
@@ -41,6 +54,60 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Notifications
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    [self application:application reactToNotification:notification];
+}
+
+- (void)application:(UIApplication *)application reactToNotification:(UILocalNotification *)notification
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:YES] forKey:[CoreData LAZY]];
+    [defaults synchronize];
+    DYELTabBarViewController *root = (DYELTabBarViewController *)[application keyWindow].rootViewController;
+    [root checkForPenalty];
+    
+    [application cancelLocalNotification:notification];
+    [CoreData resetNotifications];
+}
+
+#pragma mark - Transactions
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
+{
+    for(SKPaymentTransaction *transaction in transactions){
+        switch (transaction.transactionState) {
+                // Call the appropriate custom method.
+            case SKPaymentTransactionStatePurchased:
+                break;
+            case SKPaymentTransactionStateFailed:
+                // Meh they tried, we'll give it to 'em
+                break;
+            case SKPaymentTransactionStateRestored:
+                break;
+            default:
+                return;
+        }
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults removeObjectForKey:[CoreData LAZY]];
+        [defaults synchronize];
+        
+        [queue finishTransaction:transaction];
+        
+        DYELTabBarViewController *root = (DYELTabBarViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        [root.selectedViewController dismissViewControllerAnimated:YES completion:^{
+            if(transaction.transactionState != SKPaymentTransactionStateFailed){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You definitely lift!"
+                                                                message:[NSString stringWithFormat:@"Thanks for your honesty. You'll crush it next time!"]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"I'm great!"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+    }
 }
 
 @end

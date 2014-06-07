@@ -75,8 +75,8 @@
     
 //    self.view.autoresizesSubviews = UIViewAutoresizingFlexibleHeight;
     CGRect frame = self.view.bounds;
-    frame.origin.y += 44 + 20;
-    frame.size.height -= (44 + 49) + 20;
+    frame.origin.y += 44 + 35;
+    frame.size.height -= (44 + 49) + 35;
 //    frame.size.height /= 2;
     self.chartView = [[LCLineChartView alloc] initWithFrame:frame];
     self.chartView.yMin = lowest - 5;

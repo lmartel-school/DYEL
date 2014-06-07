@@ -17,30 +17,41 @@
 {
     Workout *workout = nil;
     
+    NSArray *workouts = [self findWorkoutsOnDate:date];
+    if(!workouts){
+        NSLog(@"[Error] Workout+Create.m");
+    } else if (![workouts count]){
+        workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout"
+                                                inManagedObjectContext:context];
+        workout.gym = gym;
+        workout.date = date;
+        [CoreData resetNotifications]; // Gym checkin disables nagging notification
+    } else {
+        workout = workouts.lastObject;
+    }
+    
+    return workout;
+}
+
++ (NSArray *)findWorkoutsOnDate:(NSDate *)date
+{
     // Strip hours/minutes/seconds from date
     date = [CoreData stripTimeFromDate:date];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Workout"];
     request.predicate = nil;
-        
-    NSError *error;
     
-   
-    NSArray *matches = [context executeFetchRequest:request error:&error];
+    NSError *error;
+    NSArray *matches = [[CoreData context] executeFetchRequest:request error:&error];
     matches = [CoreData filterArray:matches byDate:date withLeftovers:nil];
-        
-    if (error || !matches || ([matches count] > 1)) {
-        NSLog(@"[Error] Workout+Create.m");
-    } else if (![matches count]) {
-        workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout"
-                                                 inManagedObjectContext:context];
-        workout.gym = gym;
-        workout.date = date;
+    
+    if (error || !matches) {
+        NSLog(@"[Error] Workout+Create.m findWorkoutsOnDate");
     } else {
-        workout = [matches lastObject];
+        return matches;
     }
     
-    return workout;
+    return nil;
 
 }
 

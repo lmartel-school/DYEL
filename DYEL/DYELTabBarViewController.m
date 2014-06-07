@@ -7,6 +7,7 @@
 //
 
 #import "DYELTabBarViewController.h"
+#import "CoreData.h"
 
 @interface DYELTabBarViewController () <UITabBarControllerDelegate>
 @property (strong, nonatomic) NSArray *landscapeControllers;
@@ -30,6 +31,20 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self checkForPenalty];
+}
+
+- (void)checkForPenalty
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults objectForKey:[CoreData LAZY]]){
+         [self performSegueWithIdentifier:@"Penalty Segue" sender:self];
+    }
+}
+
 // Allow individual view controllers to disable rotation
 - (NSUInteger)supportedInterfaceOrientations
 {
@@ -50,7 +65,7 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    UINavigationController *current = self.selectedViewController;
+    UINavigationController *current = (UINavigationController *)self.selectedViewController;
     [current popToRootViewControllerAnimated:NO];
 }
 

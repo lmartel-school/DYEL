@@ -14,5 +14,6 @@
 + (Workout *)workoutWithGym:(Gym *)gym
                    withDate:(NSDate *)date
      inManagedObjectContext:(NSManagedObjectContext *)context;
++ (NSArray *)findWorkoutsOnDate:(NSDate *)date;
 
 @end

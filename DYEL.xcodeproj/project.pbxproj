@@ -55,6 +55,9 @@
 		B3EF33CE194221E900DEC23F /* LCLegendView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33CA194221E900DEC23F /* LCLegendView.m */; };
 		B3EF33CF194221E900DEC23F /* LCLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33CC194221E900DEC23F /* LCLineChartView.m */; };
 		B3EF33D11942242B00DEC23F /* UIKit+DrawingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33D01942242B00DEC23F /* UIKit+DrawingHelpers.m */; };
+		B3EF33D5194280BD00DEC23F /* PenaltyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF33D4194280BD00DEC23F /* PenaltyViewController.m */; };
+		B3EF33D71942841D00DEC23F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EF33D61942841D00DEC23F /* StoreKit.framework */; };
+		B3EF33D91942849100DEC23F /* product_ids.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3EF33D81942849100DEC23F /* product_ids.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +157,10 @@
 		B3EF33CC194221E900DEC23F /* LCLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLineChartView.m; sourceTree = "<group>"; };
 		B3EF33D01942242B00DEC23F /* UIKit+DrawingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+DrawingHelpers.m"; sourceTree = "<group>"; };
 		B3EF33D21942242F00DEC23F /* UIKit+DrawingHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKit+DrawingHelpers.h"; sourceTree = "<group>"; };
+		B3EF33D3194280BD00DEC23F /* PenaltyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenaltyViewController.h; sourceTree = "<group>"; };
+		B3EF33D4194280BD00DEC23F /* PenaltyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PenaltyViewController.m; sourceTree = "<group>"; };
+		B3EF33D61942841D00DEC23F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B3EF33D81942849100DEC23F /* product_ids.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = product_ids.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +171,7 @@
 				B3AC2523193FEF4600C865E6 /* CoreLocation.framework in Frameworks */,
 				B3BACEE7193AD18100AA8E77 /* CoreGraphics.framework in Frameworks */,
 				B3AC2511193FE96600C865E6 /* MapKit.framework in Frameworks */,
+				B3EF33D71942841D00DEC23F /* StoreKit.framework in Frameworks */,
 				B3BACEE9193AD18100AA8E77 /* UIKit.framework in Frameworks */,
 				B3BACEE5193AD18100AA8E77 /* Foundation.framework in Frameworks */,
 			);
@@ -204,6 +212,7 @@
 		B3BACEE3193AD18100AA8E77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3EF33D61942841D00DEC23F /* StoreKit.framework */,
 				B3AC2522193FEF4600C865E6 /* CoreLocation.framework */,
 				B3AC251D193FEC0700C865E6 /* OpenGLES.framework */,
 				B3AC251B193FEBFF00C865E6 /* QuartzCore.framework */,
@@ -231,6 +240,7 @@
 				B3BACF21193AD4DE00AA8E77 /* CoreData.h */,
 				B3BACF22193AD4DE00AA8E77 /* CoreData.m */,
 				B3BACF45193AF98000AA8E77 /* Images.xcassets */,
+				B3EF33D81942849100DEC23F /* product_ids.plist */,
 			);
 			path = DYEL;
 			sourceTree = "<group>";
@@ -285,6 +295,8 @@
 				B3EF33C119420B7300DEC23F /* DYELTabBarViewController.m */,
 				B3EF33C319420F2200DEC23F /* PortraitOnlyNavigationController.h */,
 				B3EF33C419420F2200DEC23F /* PortraitOnlyNavigationController.m */,
+				B3EF33D3194280BD00DEC23F /* PenaltyViewController.h */,
+				B3EF33D4194280BD00DEC23F /* PenaltyViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -425,7 +437,7 @@
 								enabled = 0;
 							};
 							com.apple.InAppPurchase = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Passbook = {
 								enabled = 0;
@@ -469,6 +481,7 @@
 				B3BACEEF193AD18100AA8E77 /* InfoPlist.strings in Resources */,
 				B3BACEF8193AD18100AA8E77 /* Main.storyboard in Resources */,
 				B364F1AC194190D4007E1C5F /* LiftCollectionViewCell.xib in Resources */,
+				B3EF33D91942849100DEC23F /* product_ids.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +520,7 @@
 				B3EF33CF194221E900DEC23F /* LCLineChartView.m in Sources */,
 				B3BACF27193AD7B800AA8E77 /* Model.xcdatamodeld in Sources */,
 				B3BACF49193B0D8C00AA8E77 /* ExerciseAddViewController.m in Sources */,
+				B3EF33D5194280BD00DEC23F /* PenaltyViewController.m in Sources */,
 				B3AC25321940495D00C865E6 /* Workout+Create.m in Sources */,
 				B3AC252C194024FC00C865E6 /* Gym+MapAnnotation.m in Sources */,
 				B3EF33C219420B7300DEC23F /* DYELTabBarViewController.m in Sources */,
@@ -650,7 +664,7 @@
 				GCC_PREFIX_HEADER = "DYEL/DYEL-Prefix.pch";
 				INFOPLIST_FILE = "DYEL/DYEL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67CAF49E-348F-4D62-B8F2-9488EF1C45AD";
+				PROVISIONING_PROFILE = "6650BC35-8F0A-4446-82D8-82A2C88A10CD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -666,7 +680,7 @@
 				GCC_PREFIX_HEADER = "DYEL/DYEL-Prefix.pch";
 				INFOPLIST_FILE = "DYEL/DYEL-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67CAF49E-348F-4D62-B8F2-9488EF1C45AD";
+				PROVISIONING_PROFILE = "6650BC35-8F0A-4446-82D8-82A2C88A10CD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

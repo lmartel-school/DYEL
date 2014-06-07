@@ -248,6 +248,7 @@
                         <segue destination="GxZ-UO-LZh" kind="relationship" relationship="viewControllers" id="2c5-cM-81E"/>
                         <segue destination="WJ9-Pb-Rz4" kind="relationship" relationship="viewControllers" id="1rf-n3-beo"/>
                         <segue destination="olh-GA-M5H" kind="relationship" relationship="viewControllers" id="NLK-nh-gey"/>
+                        <segue destination="6as-lL-CV9" kind="modal" identifier="Penalty Segue" animates="NO" id="7D4-Bv-B82"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwp-7y-QWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -258,7 +259,7 @@
         <scene sceneID="LqN-hq-Uus">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GxZ-UO-LZh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Plan" id="JZP-4t-fkZ"/>
+                    <tabBarItem key="tabBarItem" title="Plan" image="plan" id="JZP-4t-fkZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eSc-Ki-VvI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -375,7 +376,7 @@
         <scene sceneID="6dH-pG-gBg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="olh-GA-M5H" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Review" id="8K3-LQ-C6v"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="review" id="8K3-LQ-C6v"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sTq-Z0-ynu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -390,11 +391,42 @@
             </objects>
             <point key="canvasLocation" x="820" y="1515"/>
         </scene>
+        <!--Penalty View Controller-->
+        <scene sceneID="tJI-rs-vkG">
+            <objects>
+                <viewController id="6as-lL-CV9" customClass="PenaltyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MNA-0i-I18"/>
+                        <viewControllerLayoutGuide type="bottom" id="bXC-ZO-Ddy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N9p-U1-90r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ReH-e9-bat">
+                                <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ReH-e9-bat" secondAttribute="centerX" id="Bg8-Jg-0S9"/>
+                            <constraint firstAttribute="centerY" secondItem="ReH-e9-bat" secondAttribute="centerY" id="bS4-ob-ewl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="spinner" destination="ReH-e9-bat" id="mEq-tn-GI8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMn-Mq-fAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="1515"/>
+        </scene>
         <!--Portrait Only Navigation Controller - Lift-->
         <scene sceneID="Nqq-o8-jWD">
             <objects>
                 <navigationController title="Lift" automaticallyAdjustsScrollViewInsets="NO" id="WJ9-Pb-Rz4" customClass="PortraitOnlyNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lift" id="QCT-sB-ZDl"/>
+                    <tabBarItem key="tabBarItem" title="Lift" image="lift" id="QCT-sB-ZDl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y2m-cW-ngZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -477,6 +509,9 @@
     </scenes>
     <resources>
         <image name="No Image Available" width="300" height="300"/>
+        <image name="lift" width="27" height="26"/>
+        <image name="plan" width="27" height="23"/>
+        <image name="review" width="23" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

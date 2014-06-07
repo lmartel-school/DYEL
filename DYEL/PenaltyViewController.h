@@ -1,5 +1,5 @@
 //
-//  DYELTabBarViewController.h
+//  PenaltyViewController.h
 //  DYEL
 //
 //  Created by Leo Martel on 6/6/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DYELTabBarViewController : UITabBarController
-
-- (void)checkForPenalty;
+@interface PenaltyViewController : UIViewController
 
 @end
