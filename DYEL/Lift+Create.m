@@ -27,6 +27,7 @@
     lift.weight = [NSNumber numberWithDouble:weight];
     lift.workout = workout;
     lift.routine = routine;
+    
     // routines can be deleted, so we track our own reference to the exercise
     lift.exercise = routine.exercise;
 
@@ -37,21 +38,11 @@
 
 + (NSArray *)liftsForRoutine:(Routine *)routine inWorkout:(Workout *)workout
 {
-//    return [self fetchWithPredicate:[NSPredicate predicateWithFormat:@"workout = %@", workout]];
-    
-//    NSMutableSet *set = [NSMutableSet setWithSet:routine.lifts];
-//    [set intersectSet:workout.lifts];
-//    return [set allObjects];
     return [self fetchWithPredicate:[NSPredicate predicateWithFormat:@"workout = %@ AND routine = %@", workout, routine]];
 }
 
 + (NSArray *)liftsForExercise:(Exercise *)exercise inWorkout:(Workout *)workout
 {
-//    return [self fetchWithPredicate:nil];
-//    
-//    NSMutableSet *set = [NSMutableSet setWithSet:exercise.lifts];
-//    [set intersectSet:workout.lifts];
-//    return [set allObjects];
     return [self fetchWithPredicate:[NSPredicate predicateWithFormat:@"workout = %@ AND exercise = %@", workout, exercise]];
 }
 

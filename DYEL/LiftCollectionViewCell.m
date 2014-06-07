@@ -33,10 +33,10 @@
     _lift = lift;
     UIColor *color;
     int delta = [lift.reps intValue] - [lift.routine.reps intValue];
-    if(delta < 0){
-        color = [UIColor redColor];
-    } else if(delta > 0){
+    if(delta > 0 || [lift.position intValue] >= [lift.routine.sets intValue]){
         color = [UIColor greenColor];
+    } else if(delta < 0){
+        color = [UIColor redColor];
     } else {
         color = [UIColor blackColor];
     }

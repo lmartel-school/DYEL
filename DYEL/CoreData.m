@@ -181,7 +181,6 @@
 - (void)seed
 {
     NSManagedObjectContext * context = self.managedObjectContext;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                                 
     if([CoreData EMPTY_DB]){
         // Delete all objects in database
@@ -189,8 +188,6 @@
                                        managedObjectModel];
         for(NSEntityDescription *entity in model.entities){
             NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:entity.name];
-            fetch.sortDescriptors = @[];
-            fetch.predicate = nil;
             NSArray *all = [context executeFetchRequest:fetch error:nil];
             for (id each in all){
                 [context deleteObject:each];
@@ -198,13 +195,11 @@
         }
         
         [context save:nil];
-        [defaults removeObjectForKey:SEEDED];
     }
     
     
     
-    if(![CoreData RESEED_IF_EMPTY] || [defaults objectForKey:SEEDED]) return;
-    [defaults setObject:[NSNumber numberWithBool:YES] forKey:SEEDED];
+    if(![CoreData RESEED_IF_EMPTY] || [[CoreData context] executeFetchRequest:[[NSFetchRequest alloc] initWithEntityName:@"Day"] error:nil].count) return;
     
     // Seed fundamental data
     Exercise *squat = [Exercise exerciseWithName:@"Squat" inManagedObjectContext:context];
@@ -234,7 +229,7 @@
     Routine *r3 = [Routine createRoutineWithExercise:dl day:days[3] sets:1 reps:5];
     Routine *r4 = [Routine createRoutineWithExercise:pullup day:days[3] sets:3 reps:12];
     
-    Routine *r0 = [Routine createRoutineWithExercise:squat day:days[5] sets:3 reps:5];
+    [Routine createRoutineWithExercise:squat day:days[5] sets:3 reps:5];
     Routine *r5 = [Routine createRoutineWithExercise:bench day:days[5] sets:5 reps:5];
     Routine *r6 = [Routine createRoutineWithExercise:pc day:days[5] sets:5 reps:3];
     Routine *r7 = [Routine createRoutineWithExercise:chinup day:days[5] sets:3 reps:12];
@@ -264,6 +259,8 @@
                    withDate:lastWed
      inManagedObjectContext:context];
     
+    // Seed past lifts to have something to graph
+    
     [Lift createLiftWithRoutine:r1 workout:workout reps:5 weight:145];
     [Lift createLiftWithRoutine:r2 workout:workout reps:5 weight:105];
     [Lift createLiftWithRoutine:r3 workout:workout reps:5 weight:225];
@@ -277,8 +274,11 @@
     [Lift createLiftWithRoutine:r6 workout:workout reps:3 weight:95];
     [Lift createLiftWithRoutine:r7 workout:workout reps:12 weight:0];
     
-    for(Routine *r in @[r0, r1, r2, r3, r4, r5, r6, r7]){
-        [context deleteObject:r];
+    // Clean up routines
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:@"Routine"];
+    NSArray *allRoutines = [context executeFetchRequest:fetch error:nil];
+    for (id each in allRoutines){
+        [context deleteObject:each];
     }
     
     [context save:nil];

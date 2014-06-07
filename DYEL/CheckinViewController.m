@@ -114,15 +114,16 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    static NSString *reuseId = @"CheckinViewController";
+    static NSString *reuseId = @"Checkin Annotation";
     MKAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseId];
     if (!view) {
         view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseId];
         view.canShowCallout = YES;
+        
     }
     
-    view.annotation = annotation;
     view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    view.annotation = annotation;
     
     return view;
 }
