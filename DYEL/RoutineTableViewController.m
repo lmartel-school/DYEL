@@ -22,9 +22,12 @@
 
 - (void)awakeFromNib
 {
+    self.navigationItem.title = @"Routine";
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.navigationItem.title = @"Routine";
+    [self.tableView setEditing:YES animated:NO];
+    self.tableView.allowsSelectionDuringEditing = YES;
     
     [CoreData createContextWithCompletionHandler:^(BOOL success) {
         if(success){
@@ -39,14 +42,14 @@
         
     }];
     
-    [self.tableView setEditing:YES animated:NO];
-    self.tableView.allowsSelectionDuringEditing = YES;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [[CoreData context] save:nil];
+//    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -64,7 +67,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     int index = [[[self.fetchedResultsController sections][section] name] intValue];
-    return [CoreData dayNames][index % 7]; // TODO debug why this is needed
+    return [CoreData dayNames][index % 7];
 }
 
 
@@ -72,15 +75,12 @@
 {
     UITableViewCell *cell;
 
-    if(YES){ // TODO empty sections
-        Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Routine Cell" forIndexPath:indexPath];
-        cell.textLabel.text = routine.exercise.name;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@x%@", routine.sets, routine.reps];
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Empty Routine Cell" forIndexPath:indexPath];
-        cell.textLabel.text = @"Rest";
-    }
+
+    Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"Routine Cell" forIndexPath:indexPath];
+    cell.textLabel.text = routine.exercise.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@x%@", routine.sets, routine.reps];
+    
     return cell;
 }
 

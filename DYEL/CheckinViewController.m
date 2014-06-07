@@ -79,8 +79,7 @@
     // Do nothing extra
 }
 
-// TODO set to something sensible
-#define MAX_DISTANCE_FROM_GYM 1000 // meters
+#define MAX_DISTANCE_FROM_GYM 100 // meters
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
@@ -135,21 +134,6 @@
     WorkoutViewController *dest = [segue destinationViewController];
     dest.gym = sender.annotation;
     self.locationManager = nil; // deallocate location manager to save battery
-    
-// TODO delete
-//    CLGeocoder *geo = [[CLGeocoder alloc] init];
-//    [geo reverseGeocodeLocation:self.locationManager.location completionHandler:^(NSArray *placemarks, NSError *error) {
-//        NSLog(@"[CheckinViewController prepareForSegue]");
-//        for (int i = 0; i < [placemarks count]; i++) {
-//            CLPlacemark *placemark = placemarks[i];
-//            NSLog(@"%@", placemark);
-//            NSArray *places = placemark.areasOfInterest;
-//            for(int j = 0; j < [places count]; j++){
-//                NSLog(@"%@", places[j]);
-//            }
-//            self.locationManager = nil;
-//        }
-//    }];
 }
 
 @end

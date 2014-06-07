@@ -29,7 +29,6 @@
 
 // Public API
 
-// TODO set sensibly before submit
 + (BOOL)EMPTY_DB { return false; }
 + (BOOL)RESEED_IF_EMPTY { return true; }
 
@@ -44,11 +43,6 @@
     components.hour = 23;
     components.minute = 59;
     components.second = 59;
-    
-// TODO remove after testing
-//    components.hour = 19;
-//    components.minute = 47;
-//    components.second = 0;
     
     [CoreData createContextWithCompletionHandler:^(BOOL success) {
         NSDate *deadline = [gregorian dateFromComponents:components];
@@ -161,7 +155,7 @@
                     self.managedObjectContext = document.managedObjectContext;
                     [self seed];
                 } else {
-                    [[NSFileManager defaultManager] removeItemAtPath:[url path] error:nil]; // TODO REMOVE AFTER TESTING
+                    // [[NSFileManager defaultManager] removeItemAtPath:[url path] error:nil];
                 }
                 completionHandler(success);
             }];
@@ -240,7 +234,7 @@
     Routine *r3 = [Routine createRoutineWithExercise:dl day:days[3] sets:1 reps:5];
     Routine *r4 = [Routine createRoutineWithExercise:pullup day:days[3] sets:3 reps:12];
     
-    [Routine createRoutineWithExercise:squat day:days[5] sets:3 reps:5];
+    Routine *r0 = [Routine createRoutineWithExercise:squat day:days[5] sets:3 reps:5];
     Routine *r5 = [Routine createRoutineWithExercise:bench day:days[5] sets:5 reps:5];
     Routine *r6 = [Routine createRoutineWithExercise:pc day:days[5] sets:5 reps:3];
     Routine *r7 = [Routine createRoutineWithExercise:chinup day:days[5] sets:3 reps:12];
@@ -282,6 +276,10 @@
     [Lift createLiftWithRoutine:r5 workout:workout reps:5 weight:155];
     [Lift createLiftWithRoutine:r6 workout:workout reps:3 weight:95];
     [Lift createLiftWithRoutine:r7 workout:workout reps:12 weight:0];
+    
+    for(Routine *r in @[r0, r1, r2, r3, r4, r5, r6, r7]){
+        [context deleteObject:r];
+    }
     
     [context save:nil];
     

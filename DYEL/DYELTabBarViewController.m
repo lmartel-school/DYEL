@@ -22,7 +22,7 @@
     self.delegate = self;
     self.allControllers = [self viewControllers];
     NSMutableArray *canRotate = [NSMutableArray arrayWithArray: self.allControllers];
-    [canRotate removeObjectAtIndex: 1]; // TODO programmatically find
+    [canRotate removeObjectAtIndex: 1]; // Lift tab
     self.landscapeControllers = canRotate;
     
     if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
