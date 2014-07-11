@@ -1,0 +1,66 @@
+user:lmartel (Martel, Leo)
+
+App: "Do You Even Lift" fitness tracking app
+
+Features
+========
+
+"Plan"
+- Library of exercises with animations
+- Customize a workout routine for each day of the week
+    + Including set and rep goals for each exercise in the routine
+
+"Lift"
+- Find nearby gyms using location and local search
+- Check in at a gym to log a workout
+    + App uses location to verify you're actually at the gym you're checking into
+- Tracks which exercises you're supposed to be doing based on the day of the week
+- Log sets (each with rep count + weight) during workout
+    + Interface tracks and indicates over/underperforming, % progress on exercise, and sets logged
+- If you have a workout scheduled but don't check in at a gym, notifies you and (optionally) fines you $0.99
+    + (This is the not-covered-in-lecture feature; LocalNotifications + StoreKit)
+
+"Review"
+- See your complete routine, remove exercises if desired
+- Track progress on each exercise with charts
+- "Hurry" and "Delay" buttons cycle the entire routine backwards/forwards 1 day, respectively.
+
+Walkthrough
+===========
+
+### Note 1: when the app is first launched, it "seeds" some fake workout data (just two days' worth) to showcase the long-term features. This adds a data point on the Review chart for each exercise, and adds suggestions for starting weights for each exercise. This seed data would not be present in a production version, but it's intentional here.
+
+### Note 2: much of this app is location-sensitive (you need to be near a gym to check in and track workouts). Set the simulator's location lat/long to
+(37.426240, -122.175036) to be able to check into Roble Gym.
+
+1. Go to "Plan" tab, click an exercise, click "Add", choose day of the week, #sets and #reps and confirm
+2. Repeat Step 1 a few times to build up a weekly routine
+3. Check out the "Review" tab to see your routine or delete mistakes.
+4. Set your
+4. Go to "Lift" tab, watch the animation as it locates nearby gyms.
+5. Try to check in at Arrillaga gym (or any of the other faraway gyms). Feel guilty about trying to deceive the app.
+5. Press Roble Gym (under your blue dot), and press the + icon to check in.
+6. Change the number in the weight field, pretend to lift weights, and record the number of repetitions you did using the stepper and big button.
+7. Swipe left/right to get to other exercises in today's routine
+8. Press the "Review" tab and press any of the table rows to see a history of your efforts on that exercise. This view tracks your highest weight per day on each exercise. Press any data point to see your best rep count and the date of the datapoint. There are only two data points right now (the fake seeded one, and the one you just created), but hey, two points make a line.
+
+9. Test the notification and IAP system. This is a little tricky to spoof, but it can be done:
+    10. Delete and reset the app, or dump your database (that is, ensure somehow you haven't logged a workout today)
+    11. Add any exercise to today's routine under "Plan"
+    12. Set your simulator clock (if possible, or system clock if not) to 11:58
+    13. Launch the app
+    14. The notification will fire at 11:59:59, in both foreground and background modes.
+    15. After pressing this notification [background] or as soon as it gets triggered [foreground], the app will lock itself and scold you for your laziness.
+    16. To unlock the app, either pay $0.99 through IAP or promise you had a good reason to skip your workout.
+
+
+Collaboration
+=============
+I collaborated with another student, Andy Moreland, who lifts weights a lot. He helped me brainstorm and narrow down a useful feature set. In particular, he suggested my now-favorite feature, the IAP fine for skipping workouts. He also suggested using GPS check-ins to prevent "cheating" the app. We talked through the design and structure of the app together (ex: whether the charts should have their own toplevel tab or not).
+
+
+Citations
+=========
+Code in the Lib/ folder I didn't write; all the other code I did. The only external library I used was "ios-LineChart" to help with drawing graphs that look decent. 
+
+I also cited a few tutorials/google searches in the comments where I used them.

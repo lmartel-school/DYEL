@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Day" representedClassName="Day" syncable="YES">
+        <attribute name="index" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="routines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Routine" inverseName="day" inverseEntity="Routine" syncable="YES"/>
+    </entity>
+    <entity name="Exercise" representedClassName="Exercise" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="lifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lift" inverseName="exercise" inverseEntity="Lift" syncable="YES"/>
+        <relationship name="routines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Routine" inverseName="exercise" inverseEntity="Routine" syncable="YES"/>
+    </entity>
+    <entity name="Gym" representedClassName="Gym" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="gym" inverseEntity="Workout" syncable="YES"/>
+    </entity>
+    <entity name="Lift" representedClassName="Lift" syncable="YES">
+        <attribute name="position" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="reps" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="lifts" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="routine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Routine" inverseName="lifts" inverseEntity="Routine" syncable="YES"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="lifts" inverseEntity="Workout" syncable="YES"/>
+    </entity>
+    <entity name="Routine" representedClassName="Routine" syncable="YES">
+        <attribute name="position" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="reps" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sets" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="day" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="routines" inverseEntity="Day" syncable="YES"/>
+        <relationship name="exercise" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="routines" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="lifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lift" inverseName="routine" inverseEntity="Lift" syncable="YES"/>
+    </entity>
+    <entity name="Workout" representedClassName="Workout" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="gym" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gym" inverseName="workouts" inverseEntity="Gym" syncable="YES"/>
+        <relationship name="lifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lift" inverseName="workout" inverseEntity="Lift" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Day" positionX="-128" positionY="-36" width="128" height="88"/>
+        <element name="Exercise" positionX="-351" positionY="-36" width="128" height="88"/>
+        <element name="Gym" positionX="187" positionY="167" width="128" height="103"/>
+        <element name="Lift" positionX="-324" positionY="122" width="128" height="135"/>
+        <element name="Routine" positionX="-126" positionY="-286" width="128" height="133"/>
+        <element name="Workout" positionX="-20" positionY="173" width="128" height="88"/>
+    </elements>
+</model>
