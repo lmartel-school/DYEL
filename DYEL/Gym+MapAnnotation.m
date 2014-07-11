@@ -51,4 +51,17 @@
     return gym;
 }
 
++ (NSArray *)allinManagedObjectContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Gym"];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    if (error || !matches || ![matches count]) {
+        NSLog(@"[Error] Gym+MapAnnotation.m");
+    }
+    
+    return matches;
+}
+
 @end

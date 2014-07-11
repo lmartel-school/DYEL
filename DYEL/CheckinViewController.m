@@ -33,10 +33,31 @@
     #pragma unused (loc)
 }
 
+// On first load, zoom to see nearby gyms (and load previously visited gyms)
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
+    
+    [self updateNearbyGyms:YES];
+    NSArray *priorGyms = [Gym allinManagedObjectContext:[CoreData context]];
+    for(Gym *gym in priorGyms){
+        [self.mapView addAnnotation:gym];
+    }
+}
+
+// On reload, recenter but don't change zoom
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self updateNearbyGyms:NO];
+    [self.mapView setCenterCoordinate:self.locationManager.location.coordinate animated:YES];
+}
+
+- (void)updateNearbyGyms:(BOOL)moveViewport
+{
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
     request.naturalLanguageQuery = @"gym";
     
@@ -51,12 +72,15 @@
                                             inManagedObjectContext:[CoreData context]]
                  ];
             }
-            [self.mapView showAnnotations:self.mapView.annotations animated:YES];
-            self.mapView.delegate = self;
+            
+            if(moveViewport){
+                [self.mapView showAnnotations:self.mapView.annotations animated:YES];
+            }
         } else {
             NSLog(@"[CheckinViewController viewDidLoad] Error: %@", [error localizedDescription]);
         }
     }];
+
 }
 
 #pragma mark Properties
@@ -77,6 +101,12 @@
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     // Do nothing extra
+}
+
+// On location update, check for new gyms but don't move camera
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    [self updateNearbyGyms:NO];
 }
 
 #define MAX_DISTANCE_FROM_GYM 100 // meters
@@ -114,16 +144,18 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
+    if([annotation isEqual:[mapView userLocation]]) return nil; // Show user as blue dot, not red pin
+ 
     static NSString *reuseId = @"Checkin Annotation";
     MKAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseId];
     if (!view) {
         view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseId];
         view.canShowCallout = YES;
-        
     }
     
     view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
     view.annotation = annotation;
+    NSLog(@"%@", annotation);
     
     return view;
 }

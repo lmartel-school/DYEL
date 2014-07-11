@@ -17,4 +17,6 @@
                   withName:(NSString *)name
     inManagedObjectContext:(NSManagedObjectContext *)context;
 
++ (NSArray *)allinManagedObjectContext:(NSManagedObjectContext *)context;
+
 @end

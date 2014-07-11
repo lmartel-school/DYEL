@@ -173,115 +173,31 @@
 
 }
 
-#define SEEDED @"db_seeded"
-
 - (void)seed
 {
     NSManagedObjectContext * context = self.managedObjectContext;
-                                
-    if(false){
-        // Delete all objects in database
-        NSManagedObjectModel *model = [[self.managedObjectContext persistentStoreCoordinator]
-                                       managedObjectModel];
-        for(NSEntityDescription *entity in model.entities){
-            NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:entity.name];
-            NSArray *all = [context executeFetchRequest:fetch error:nil];
-            for (id each in all){
-                [context deleteObject:each];
-            }
-        }
-        
-        [context save:nil];
-    }
     
     // Create exercises (if they don't exist)
-    Exercise *squat = [Exercise exerciseWithName:@"Squat" inManagedObjectContext:context];
-    Exercise *dl = [Exercise exerciseWithName:@"Deadlift" inManagedObjectContext:context];
-    Exercise *bench = [Exercise exerciseWithName:@"Bench Press" inManagedObjectContext:context];
-    Exercise *ohp = [Exercise exerciseWithName:@"Overhead Press" inManagedObjectContext:context];
-    Exercise *pc = [Exercise exerciseWithName:@"Power Clean" inManagedObjectContext:context];
-    Exercise *pullup = [Exercise exerciseWithName:@"Pullup" inManagedObjectContext:context];
-    Exercise *chinup = [Exercise exerciseWithName:@"Chinup" inManagedObjectContext:context];
+    [Exercise exerciseWithName:@"Squat" inManagedObjectContext:context];
+    [Exercise exerciseWithName:@"Deadlift" inManagedObjectContext:context];
+    [Exercise exerciseWithName:@"Bench Press" inManagedObjectContext:context];
+    [Exercise exerciseWithName:@"Overhead Press" inManagedObjectContext:context];
+    [Exercise exerciseWithName:@"Power Clean" inManagedObjectContext:context];
+    [Exercise exerciseWithName:@"Pullup" inManagedObjectContext:context];
+    [Exercise exerciseWithName:@"Chinup" inManagedObjectContext:context];
     
     // Create days (if they don't exist)
     NSArray *dayNames = [CoreData dayNames];
-    NSMutableArray *days = [[NSMutableArray alloc] init];
     for (int i = 0; i < [dayNames count]; i++) {
-        Day *day = [Day dayWithName:dayNames[i] inManagedObjectContext:context];
-        [days addObject:day];
+        [Day dayWithName:dayNames[i] inManagedObjectContext:context];
     }
     
-    // Seed example data
-    Routine *r1a = [Routine createRoutineWithExercise:squat day:days[1] sets:3 reps:5];
-//    [Routine createRoutineWithExercise:bench day:days[1] sets:5 reps:5];
-//    [Routine createRoutineWithExercise:pc day:days[1] sets:5 reps:3];
-//    [Routine createRoutineWithExercise:chinup day:days[1] sets:3 reps:12];
-    
-    Routine *r1b = [Routine createRoutineWithExercise:squat day:days[3] sets:3 reps:5];
-//    Routine *r2 = [Routine createRoutineWithExercise:ohp day:days[3] sets:5 reps:5];
-//    Routine *r3 = [Routine createRoutineWithExercise:dl day:days[3] sets:1 reps:5];
-//    Routine *r4 = [Routine createRoutineWithExercise:pullup day:days[3] sets:3 reps:12];
-    
-    Routine *r1c = [Routine createRoutineWithExercise:squat day:days[5] sets:3 reps:5];
-//    Routine *r5 = [Routine createRoutineWithExercise:bench day:days[5] sets:5 reps:5];
-//    Routine *r6 = [Routine createRoutineWithExercise:pc day:days[5] sets:5 reps:3];
-//    Routine *r7 = [Routine createRoutineWithExercise:chinup day:days[5] sets:3 reps:12];
-    
-    
-    Gym *gym = [Gym gymWithCoordinate:CLLocationCoordinate2DMake(37.426240, -122.175036) // roble gym coords
-                  withName:@"Roble Gym"
-    inManagedObjectContext:context];
-    
-    NSDate *today = [CoreData stripTimeFromDate:[NSDate date]];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [calendar components:NSWeekdayCalendarUnit
-                                               fromDate:today];
-    NSDateComponents *delta = [[NSDateComponents alloc] init];
-    delta.day = - (7 + (components.weekday - 1) + 1);
-    
-    NSDate *lastMon = [[NSCalendar currentCalendar] dateByAddingComponents:delta toDate:today options:0];
-    
-    delta = [[NSDateComponents alloc] init];
-    delta.day = 2;
-    
-    NSDate *lastWed = [[NSCalendar currentCalendar] dateByAddingComponents:delta toDate:lastMon options:0];
-    NSDate *lastFri = [[NSCalendar currentCalendar] dateByAddingComponents:delta toDate:lastWed options:0];
-    
-    
-    // Seed past lifts to have something to graph
-    
-    Workout *workout = [Workout workoutWithGym:gym
-                                      withDate:lastMon
-                        inManagedObjectContext:context];
-    
-    [Lift createLiftWithRoutine:r1a workout:workout reps:8 weight:255];
-    
-    workout = [Workout workoutWithGym:gym
-                             withDate:lastWed
+    // Hardcode the Dropbox gym (TODO: "add gym" button)
+    [Gym gymWithCoordinate:CLLocationCoordinate2DMake(37.776534, -122.392107)
+                             withName:@"Dropbox Gym"
                inManagedObjectContext:context];
-    
-    [Lift createLiftWithRoutine:r1b workout:workout reps:2 weight:275];
-//    [Lift createLiftWithRoutine:r2 workout:workout reps:5 weight:105];
-//    [Lift createLiftWithRoutine:r3 workout:workout reps:5 weight:225];
-//    [Lift createLiftWithRoutine:r4 workout:workout reps:12 weight:0];
-    
-    workout = [Workout workoutWithGym:gym
-                             withDate:lastFri
-               inManagedObjectContext:context];
-    [Lift createLiftWithRoutine:r1c workout:workout reps:6 weight:235];
-//    [Lift createLiftWithRoutine:r5 workout:workout reps:5 weight:155];
-//    [Lift createLiftWithRoutine:r6 workout:workout reps:3 weight:95];
-//    [Lift createLiftWithRoutine:r7 workout:workout reps:12 weight:0];
-    
-    // Clean up routines
-    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:@"Routine"];
-    NSArray *allRoutines = [context executeFetchRequest:fetch error:nil];
-    for (id each in allRoutines){
-        [context deleteObject:each];
-    }
     
     [context save:nil];
-    
 }
 
 @end

@@ -10,10 +10,6 @@
 
 @interface CoreData : NSObject
 
-// Flags to empty database and reseed
-+ (BOOL)EMPTY_DB;
-+ (BOOL)RESEED_IF_EMPTY;
-
 + (NSString *)LAZY;
 
 + (void)resetNotifications;
