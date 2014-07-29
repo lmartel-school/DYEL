@@ -31,6 +31,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="hyy-lC-4z9" firstAttribute="leading" secondItem="Q6r-Td-kSx" secondAttribute="leading" id="0Vm-fV-vV7"/>
                 <constraint firstAttribute="bottom" secondItem="hyy-lC-4z9" secondAttribute="bottom" constant="2" id="0mE-Ix-L6K"/>

@@ -8,6 +8,7 @@
 
 #import "LiftCollectionViewCell.h"
 #import "Routine.h"
+#import "CoreData.h"
 
 @interface LiftCollectionViewCell()
 
@@ -26,6 +27,11 @@
     
     self.clipsToBounds = YES;
     self.layer.cornerRadius = 10.0;
+    
+    
+    [self addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self
+                                             action:@selector(cellTapped:)]];
 }
 
 - (void)setLift:(Lift *)lift
@@ -46,6 +52,17 @@
                                                                     attributes:[NSDictionary dictionaryWithObject:color
                                                                                                            forKey:NSForegroundColorAttributeName]];
     
+}
+
+- (void)cellTapped:(UITapGestureRecognizer *)sender {
+    __weak LiftCollectionViewCell *this = self;
+    [UIView animateWithDuration:0.25
+                     animations:^{ this.alpha = 0.0; }
+                     completion:^(BOOL finished) {
+                         [[CoreData context] deleteObject:this.lift];
+                         [(UICollectionView *)[this superview] reloadData];
+                     }
+     ];
 }
 
 @end
