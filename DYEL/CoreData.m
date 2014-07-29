@@ -35,6 +35,7 @@
 {
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [gregorian setTimeZone:[NSTimeZone localTimeZone]];
     NSDateComponents *components = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
                                                 fromDate:[NSDate date]];
     components.hour = 23;
@@ -76,6 +77,7 @@
 + (NSDate *)stripTimeFromDate:(NSDate *)date
 {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [gregorianCalendar setTimeZone:[NSTimeZone localTimeZone]];
     NSDateComponents *components = [gregorianCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
                                                         fromDate:date];
     return [gregorianCalendar dateFromComponents:components];
@@ -85,7 +87,7 @@
 {
     NSMutableArray *match = [[NSMutableArray alloc] init];
     for(id<hasDate> thing in array){
-        if([date compare:thing.date] == NSOrderedSame){
+        if([date compare:[CoreData stripTimeFromDate:thing.date]] == NSOrderedSame){
             [match addObject:thing];
         } else {
             [leftovers addObject:thing];
@@ -107,7 +109,7 @@
 // Private
 
 #define FILE_NAME @"DYEL_Data"
-#define EXPECTED_CALLBACKS 3
+#define EXPECTED_CALLBACKS 4
 
 + (instancetype)instance
 {

@@ -155,7 +155,6 @@
     
     view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
     view.annotation = annotation;
-    NSLog(@"%@", annotation);
     
     return view;
 }
